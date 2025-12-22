@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 14:34:22 by jferone           #+#    #+#             */
-/*   Updated: 2025/12/18 14:34:22 by jferone          ###   ########.fr       */
+/*   Created: 2025/12/22 15:51:22 by jferone           #+#    #+#             */
+/*   Updated: 2025/12/22 19:23:34 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef
-#define CHECKER
+#ifndef CHECKER_H
+# define CHECKER_H
 
 #endif
