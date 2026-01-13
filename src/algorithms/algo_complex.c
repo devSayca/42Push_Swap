@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   algo_greedy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 17:59:36 by jferone           #+#    #+#             */
-/*   Updated: 2025/12/23 17:59:37 by jferone          ###   ########.fr       */
+/*   Created: 2026/01/13 09:28:52 by jferone           #+#    #+#             */
+/*   Updated: 2026/01/13 09:28:52 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// flag --complex : Application of the complex "Greedy Cost" Turk algorithm
 

@@ -15,10 +15,26 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stddef.h>
+# include <stdio.h>
 # include <limits.h>
 
-/* Root files*/
-int			main(argc, **argv);
-int			error(void);
+typedef struct  s_stack
+{
+    int 
+    int 
+    int 
+    int 
+    int 
+    int 
+    struct s_stack  *next;
+}   t_stack;
+
+/*  */
+
+/*  */
+
+/* Root files */
+int			main(int argc, char **argv);
 
 #endif

@@ -155,15 +155,12 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 
 # LLM USAGE
 
-0. **No AI** used to replace human intelligence & cognition.
+0. **No LLM** used to replace human intelligence & cognition.
 
-1. **No AI** for Readme, Makefile, Headers, Source codes.
+1. **No LLM** for Readme, Makefile, Headers, Source codes.
 
-2. **No AI** for debugs or code completion. 
+2. **No LLM** for debugs or code completion. 
 
-3. **AI used for** deepening research on existing mathematical algorithms, and manipulation of non-mastered mathematical theory.
+3. **LLM used for** deepening research on existing mathematical algorithms, and manipulation of non-mastered mathematical theory.
 
-4. **Advanced cross-AI collaboration** for exploring and learning some mathematical "super-algorithms" and post-bonus possibilities.
-
-
-
+4. **Advanced cross-LLM collaboration** for exploring and learning some mathematical "super-algorithms" and post-bonus possibilities.
