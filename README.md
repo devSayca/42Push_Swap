@@ -11,20 +11,60 @@ We need to sort these numbers really fast, with only two stacks as the following
 
 > stack **b** : `(empty)`
 
+This program gives `user` the choice to select one of our **3 algo strategies**, or a **default adaptive strategy** wich can choose the right algo based on the original's stack disorder calculation.
+
+---
+
+# ARCHITECTURE
+
+```
+├── include
+│   └── push_swap.h		# PROGRAM'S CONTRACT: Structures + Prototypes
+│
+├── src
+│   ├── main.c			# ORCHESTRATION: Init -> Flags -> Check -> Dispatch -> Free
+│   │
+│   ├── algorithms/		# STRATEGY PATTERN
+│   │   ├── algo_simple.c		# O(n^2)		: Insertion logic
+│   │   ├── algo_medium.c		# O(n√n)		: Chunks logic
+│   │   └── algo_complex.c		# O(nlogn)-like	: Cost approach (Turk Sort)
+│	│							  for peak performance in subject's bonus.
+│   │
+│   ├── managers/		# PROGRAM'S BRAIN
+│   │   ├── initialization.c	# Stack initialisation & argv parsing
+│   │   ├── checks.c			# Input validations
+│   │   ├── flags.c				# Flags management
+│   │   ├── metrics.c			# Disorder  & is_sorted (Mandatory & Bench)
+│   │   ├── strategy.c			# Dispatcher by flags or disorder calculation
+│   │   └── benchmark.c			# Displaying stats in STDERR
+│   │
+│   ├── operations/		# PUSHSWAP OPERATIONS
+│   │   ├── ops_push.c			# pa, pb
+│   │   ├── ops_rotate.c		# ra, rb, rr
+│   │   ├── ops_rrotate.c		# rra, rrb, rrr
+│   │   └── ops_swap.c			# sa, sb, ss
+│   │
+│   └── utils/			# CLEANING & HELPING TOOLS
+│       ├── cleanup.c			# free_stack, free_all, error_exit
+│       ├── cost.c				# cost calculator for our complex algorithm
+│       └── wrappers.c			# ft_atol & writers/wrappers
+│
+└── Makefile  <-- You are here
+```
 
 ## Operations
 
-#### 1. **Swaps**
+#### 1. Swaps - in-stack top-swap
 
 - **sa** - `swap a` : swap the first two elements at the top of stack a.
 
 - **sb** - `swap b` : same operation for stack b.
 
-- **ss** - `"swap-swap"` : sa & sb combined in one operation. *Economical.*
+- **ss** - `"swap-swap"` : sa & sb combined in one operation. *Eco move.*
 
 
 
-#### 2. **Pushes**
+#### 2. Pushes - inter-stack transfers
 
 - **pa** - `push to a` : push the top of *b to the top of *a.
 *Does nothing if **b** is empty.*
@@ -34,7 +74,7 @@ We need to sort these numbers really fast, with only two stacks as the following
 
 
 
-#### 3. **Rotations (top to bottom)**
+#### 3. Rotations - in-stack top-to-bottom
 
 - **ra** - `rotate a` : shift up all elements of stack *a by one.
 *The first element becomes the last one.*
@@ -42,11 +82,11 @@ We need to sort these numbers really fast, with only two stacks as the following
 - **rb** - `rotate b` : shift up all elements of stack *a by one.
 *The first element becomes the last one.*
 
-- **rr** - `"rotate-rotate"` : ra & rb combined in one operation. *Economical.*
+- **rr** - `"rotate-rotate"` : ra & rb combined in one operation. *Eco move.*
 
 
 
-#### 4. **Reverse-rotations (bottom to top)**
+#### 4. Reverse-rotations - in-stack bottom-to-top
 
 - **rra** - `reverse rotate a` : Shift down all elements of stack *a by one.
 *The last element becomes the first one.*
@@ -54,7 +94,7 @@ We need to sort these numbers really fast, with only two stacks as the following
 - **rrb** - `reverse rotate b` : Shift down all elements of stack *b by one.
 *The last element becomes the first one.*
 
-- **rrr** - `"rotato-rotato"` : rra and rrb at the same time. *Economical.*
+- **rrr** - `"reverso-rotato"` : rra and rrb at the same time. *Eco move.*
 
 
 ---
@@ -117,30 +157,35 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 
 ---
 
+((( WORK IN PROGRESS FROM THIS MESSAGE ))) - temporary warning
+
 ## **TEAMWORK REPARTITION**
 
-- Global architecture.
-- Global debugging & troubleshots.
+> **`common work`**
+- Global debugs & troubleshots.
+- Complex algo implementation.
 
 > **`jferone`** focused on...
-- Composition: README, Makefile, Headers.
-- exemple
+- Global architecture definition.
+- README & headers composition.
+- Medium algo implementation.
+- Bench
 
 > **`almanier`** focused on...
-- exemple
-- exemple
+- Global architecture corrections, upgrades and validation.
+- Operations code,  composition.
+- Init, 
+- Simple algo implementation.
 
 ### **USAGE EXEMPLES**
 
-- 
+- Using
 - 
 - 
 
 ### **FEATURE LIST**
 
 - PushSwap flags : `--simple` ; `--medium` ; `--complex` ; `--adaptive` ; `--benchmark`
-
-
 
 
 
@@ -153,14 +198,16 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 
 
 
-# LLM USAGE
+# AI USAGE
 
 0. **No LLM** used to replace human intelligence & cognition.
 
-1. **No LLM** for Readme, Makefile, Headers, Source codes.
+1. **No LLM** for generating Readme, Makefile, Headers, Source codes.
 
-2. **No LLM** for debugs or code completion. 
+2. **No LLM** for automatic debugs or code completion. 
 
 3. **LLM used for** deepening research on existing mathematical algorithms, and manipulation of non-mastered mathematical theory.
 
 4. **Advanced cross-LLM collaboration** for exploring and learning some mathematical "super-algorithms" and post-bonus possibilities.
+
+5. **LLM used for** language and logical mistakes tracking throught project's building.

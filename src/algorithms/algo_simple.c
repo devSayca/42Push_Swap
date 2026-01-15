@@ -12,5 +12,5 @@
 
 #include "push_swap.h"
 
-// flag --simple : Application of the simple-level "Insertion" algorithm
-
+// flag --simple : "Insertion algorithm" algorithm.
+int		solve_simple();

@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_pushswap.c                                   :+:      :+:    :+:   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 09:49:38 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/13 09:49:38 by jferone          ###   ########.fr       */
+/*   Created: 2026/01/15 23:43:13 by jferone           #+#    #+#             */
+/*   Updated: 2026/01/15 23:43:13 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
 
 void	free_stack(t_stack **stack)
 {
@@ -27,7 +25,7 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-// Returns the absolute value of a pos/neg Number (measures its distance from 0) 
+// Returns the absolute value of a pos/neg Number (measures its distance from 0)
 int		absol_val(int number)
 {
 	if (number < 0)
@@ -35,7 +33,7 @@ int		absol_val(int number)
 	return (number);
 }
 
-void	exit_error(t_stack **stack_a, t_stack **stack_b)
+void	error_exit(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a == NULL || *stack_a != NULL)
 		free_stack(stack_a);

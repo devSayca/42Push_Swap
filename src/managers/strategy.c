@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_chunk.c                                       :+:      :+:    :+:   */
+/*   strategy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 09:28:53 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/13 09:28:53 by jferone          ###   ########.fr       */
+/*   Created: 2026/01/15 23:59:49 by jferone           #+#    #+#             */
+/*   Updated: 2026/01/15 23:59:49 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// flag --medium : "Chunk algorithm" application.
-int		solve_medium();
+// Quick read: 
+int		dispatch_strategy();

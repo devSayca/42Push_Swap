@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_check.c                                      :+:      :+:    :+:   */
+/*   metrics.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 09:54:45 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/13 09:54:45 by jferone          ###   ########.fr       */
+/*   Created: 2026/01/15 23:58:09 by jferone           #+#    #+#             */
+/*   Updated: 2026/01/15 23:58:09 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Quick read: 
+int		is_sorted();
+
+// Quick read: 
+int		compute_disorder();
+
+/* LEGACY @jferone's FUNCTIONS TO REWORK */
 // Reminder: Signs 0/1 condition verification
 int	ft_issign(char c)
 {

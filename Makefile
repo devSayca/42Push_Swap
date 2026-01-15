@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jferone <jferone@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/01/15 21:53:51 by jferone           #+#    #+#              #
+#    Updated: 2026/01/15 21:53:51 by jferone          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # --- PROJECT ---
 NAME		= 	push_swap
 BONUS_NAME	= 	checker
@@ -8,15 +20,14 @@ CFLAGS		=	-Wall -Wextra -Werror $(INCLUDES)
 
 # --- SOURCES ---
 SRCS		=	src/main.c \
-				
+				<><> TO FILL <><>
 
-BONUS_SRCS	=	bonus/checker_main_bonus.c \
-				bonus/checker_apply_bonus.c
+BONUS_SRCS	=	<><> TO FILL <><>
 
 OBJS		=	$(SRCS:.c=.o)
 BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
 
-# --- RULES --- | @jferone: Don't touch this except for bonus set-settings
+# --- RULES --- | @jferone to @all : Please don't touch this except for bonus
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
