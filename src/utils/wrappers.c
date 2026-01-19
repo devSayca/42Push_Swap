@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_libft.c                                      :+:      :+:    :+:   */
+/*   wrappers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 09:49:29 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/13 09:49:29 by jferone          ###   ########.fr       */
+/*   Created: 2026/01/15 23:43:57 by jferone           #+#    #+#             */
+/*   Updated: 2026/01/15 23:43:57 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Fast read: Shows/cast (with "write" function) an entire string of chars
+// Quick read: Shows/cast (with "write" function) an entire string of chars
 void	ft_putstr(char *str)
 {
 	int	cursor;
@@ -25,8 +25,9 @@ void	ft_putstr(char *str)
 	}
 }
 
-// Fast read: Converts ASCII char numbers (from *str) to an integer "int number"
-long int	ft_atoi(const char *str)
+// CAUTION ! REWORK ATOI TO GET ATOL (Long & long long overflow)
+// Quick read: 
+long int	ft_atol_strict(const char *str)
 {
 	long int	number;
 	int			cursor;

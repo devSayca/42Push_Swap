@@ -12,5 +12,5 @@
 
 #include "push_swap.h"
 
-// flag --complex : Application of the complex "Greedy Cost" Turk algorithm
-
+// flag --complex : "Greedy Cost Loop" Turk Sort application.
+int     solve_complex();

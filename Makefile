@@ -1,38 +1,66 @@
-# --- PROJECT ---
-NAME		= 	push_swap
-BONUS_NAME	= 	checker
-INCLUDES	=	-I include
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jferone <jferone@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/01/15 21:53:51 by jferone           #+#    #+#              #
+#    Updated: 2026/01/15 21:53:51 by jferone          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror $(INCLUDES)
+NAME        = push_swap
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror -I./include
 
-# --- SOURCES ---
-SRCS		=	src/main.c \
-				
+SRC_DIR     = src
+OBJ_DIR     = obj
 
-BONUS_SRCS	=	bonus/checker_main_bonus.c \
-				bonus/checker_apply_bonus.c
+# --- SOURCES (in separated responsabilities) --- #
+SRC_MAIN    = main.c
 
-OBJS		=	$(SRCS:.c=.o)
-BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+SRC_MGR     = managers/initialization.c \
+              managers/checks.c \
+              managers/flags.c \
+              managers/metrics.c \
+              managers/strategy.c \
+              managers/benchmark.c
 
-# --- RULES --- | @jferone: Don't touch this except for bonus set-settings
-all:	$(NAME)
+SRC_ALGO    = algorithms/algo_simple.c \
+              algorithms/algo_medium.c \
+              algorithms/algo_complex.c
 
-$(NAME):	$(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+SRC_OPS     = operations/ops_push.c \
+              operations/ops_swap.c \
+              operations/ops_rotate.c \
+              operations/ops_rrotate.c
 
-bonus:	$(BONUS_NAME)
+SRC_UTILS   = utils/cleanup.c \
+              utils/cost.c \
+              utils/wrappers.c
 
-$(BONUS_NAME):	$(OBJS) $(BONUS_OBJS)
-			$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJS) -o $(BONUS_NAME)
+# --- CONCATENATION ---
+SRCS        = $(addprefix $(SRC_DIR)/, $(SRC_MAIN) $(SRC_MGR) $(SRC_ALGO) $(SRC_OPS) $(SRC_UTILS))
+OBJS        = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+
+# --- RULES ---
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+# Redirects each objects in their folder, NOT in the root file.
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME) $(BONUS_NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

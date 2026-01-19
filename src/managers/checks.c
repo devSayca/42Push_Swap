@@ -1,14 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 09:53:34 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/13 09:53:34 by jferone          ###   ########.fr       */
+/*   Created: 2026/01/16 00:01:54 by jferone           #+#    #+#             */
+/*   Updated: 2026/01/16 00:01:54 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Quick read: Checks if argc contains numbers.
+int		check_syntax();
+
+// Quick read: Checks duplications.
+int		check_duplicates();

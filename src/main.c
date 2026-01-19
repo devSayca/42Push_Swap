@@ -12,3 +12,24 @@
 
 #include "push_swap.h"
 
+/* Quick read: This is the entry. The highest orchestration function. */
+int main(int argc, char **argv)
+{
+    t_gcb   gcb;
+    int     start_index;
+
+    if (argc < 2)
+        return (0);
+    init_gcb(&gcb);
+    start_index = parse_flags(&gcb, argc, argv);
+    init_stack_a(&gcb, argv, start_index);
+    if (is_sorted(gcb.a))
+    {
+        free_gcb(&gcb);
+        return (0);
+    }
+    dispatch_strategy(&gcb);
+    print_benchmark(&gcb);
+    free_gcb(&gcb);
+    return (0);
+}

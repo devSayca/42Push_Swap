@@ -12,5 +12,5 @@
 
 #include "push_swap.h"
 
-// flag --medium : Application of the medium-level "Chunk" algorithm
-
+// flag --medium : "Chunk algorithm" application.
+int		solve_medium();
