@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/19 17:54:08 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/19 17:58:37 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,3 +17,4 @@ int		init_app();
 
 // Quick read: Fills stack *a from argv.
 int		init_stack_a();
+

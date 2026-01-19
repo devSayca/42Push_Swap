@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/19 17:34:40 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/19 18:07:27 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,25 @@
 
 /* ===== ENUMERATIONS ===== */
 
-/* --- OPERATIONS --- */
+/* --- OPERATIONS ENUM --- */
 // Used for benchmark's statboard.
 typedef enum e_op
 {
-	OP_SA, OP_SB, OP_SS,
-	OP_PA, OP_PB,
-	OP_RA, OP_RB, OP_RR,
-	OP_RRA, OP_RRB, OP_RRR,
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR,
 	OP_COUNT
 }	t_op;
 
-/* --- FLAG FOR MODES --- */
+/* --- FLAG MODES ENUM --- */
 // Default mode is --adaptive. The last flag wins. --bench is additional.
 typedef enum e_mode
 {
@@ -59,7 +66,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-/* --- GLOBAL CONTEXT BRAIN STRUCTURE ---*/
+/* --- GLOBAL CONTEXT BRAIN (GCB) STRUCTURE ---*/
 typedef struct s_gcb
 {
 	t_stack	*a;
@@ -133,7 +140,7 @@ void	op_rrr(t_gcb *gcb, bool print);
 void	free_gcb(t_gcb *gcb);
 void	error_exit(t_gcb *gcb, char *msg);
 
-// utils_cost.c	- helpers for complex algorithm
+// utils_cost.c	(helpers for complex algorithm)
 void	set_target_positions(t_gcb *gcb);
 void	calculate_move_cost(t_gcb *gcb);
 t_stack	*get_cheapest_node(t_stack *stack);

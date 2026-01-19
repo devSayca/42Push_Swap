@@ -18,20 +18,19 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 # ARCHITECTURE
 
 ```
-.\
-│
-│	PROGRAM'S CONTRACT : Enumerations, Structures & Prototypes
+.
+│	# PROGRAM'S CONTRACT : Enumerations, Structures & Prototypes
 ├── push_swap.h
 │
-│	ORCHESTRATION : Init, Flags, Check, Dispatch, Free
+│	# ORCHESTRATION : Init, Flags, Check, Dispatch, Free
 ├── main.c 
 │
-│	ALGORITHMS : Mathematical strategies
-├── algo_simple.c		# O(n^2)		: Insertion logic
-├── algo_medium.c		# O(n√n)		: Chunks logic
-├── algo_complex.c		# O(nlogn)-like	: Turk greedy cost approach (peak performance for bonus)
+│	# ALGORITHMS : Methods with the 3 imposed mathematical complexities
+├── algo_simple.c		# O(n^2) complexity only	: Insertion logic
+├── algo_medium.c		# O(n√n) complexity only	: Chunks logic
+├── algo_complex.c		# O(nlogn) complexity only	: Radix Sort
 │
-│	MANAGERS : Program's brain
+│	# MANAGERS : Program's brain
 ├── mgr_init.c			# Stack initialisation & argv parsing
 ├── mgr_checks.c		# Input validations
 ├── mgr_flags.c			# Flags management
@@ -39,13 +38,13 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 ├── mgr_strategy.c		# Dispatcher by flags or disorder calculation
 ├── mgr_benchmark.c		# Displaying stats in STDERR
 │
-│	PUSHSWAP OPERATIONS
+│	# PUSHSWAP OPERATIONS
 ├── ops_push.c			# pa, pb
 ├── ops_rotate.c		# ra, rb, rr
 ├── ops_rrotate.c		# rra, rrb, rrr
 ├── ops_swap.c			# sa, sb, ss
 │
-│	UTILS : Cleaning & helping tools
+│	# UTILS : Cleaning & helping tools
 ├── utils_cleanup.c		# free_stack, free_all, error_exit
 ├── utils_cost.c		# cost calculator for our complex algorithm
 ├── utils_wrappers.c	# ft_atol & writers/wrappers
@@ -123,11 +122,13 @@ Forces the use of our `O(n√n) complexity` algorithm.
 
 
 ### 3. `--complex`
-#### Turk Greedy Cost algorithm
+#### Radix Sort Algorithm
 
 Forces the use of our `O(n log n) complexity` algorithm
 
-**Aims to** solve heavy stacks by cost-minimizing greedy heuristic calculating the optimal path for each element.
+**Aims to** 
+
+//////////////  COMPLETE THIS PART BEFORE EVALUATION  //////////////
 
 
 ### 4. `--adaptive` (default mode if no flag)
@@ -167,7 +168,7 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 - Complex algo implementation.
 
 > **`jferone`** focused on...
-- Global architecture definition.
+- Global source code architecture.
 - README & headers composition.
 - Medium algo implementation.
 - Bench
@@ -201,14 +202,14 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 
 # AI USAGE
 
-0. **LLM used for** syntax checking, optimization research, and generating boilerplate documentation. 
+1. **LLM used for** syntax checking, optimization research, and generating boilerplate documentation. 
 
-1. **No LLM** for generating Readme, Makefile, Headers, Source codes.
+2. **No LLM** for generating Readme, Makefile, Headers, Source codes.
 
-2. **No LLM** for automatic debugs or code completion. 
+3. **No LLM** for automatic debugs or code completion. 
 
-3. **LLM used for** deepening research on existing mathematical algorithms, and manipulation of non-mastered mathematical theory.
+4. **LLM used for** deepening research on existing mathematical algorithms, and manipulation of non-mastered mathematical theory.
 
-4. **Advanced cross-LLM collaboration** for exploring and learning some mathematical "super-algorithms" and post-bonus possibilities.
+5. **Advanced cross-LLM collaboration** for exploring and learning some mathematical "super-algorithms" and post-bonus possibilities.
 
-5. **LLM used for** language and logical mistakes tracking throught project's building.
+6. **LLM used for** language and logical mistakes tracking throught project's building.

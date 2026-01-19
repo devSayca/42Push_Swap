@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleanup.c                                          :+:      :+:    :+:   */
+/*   utils_cleanup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:13 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/19 17:48:55 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/19 18:08:38 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	free_stack(t_stack **stack)
 }
 
 // Returns the absolute value of a pos/neg Number (measures its distance from 0)
-int		absol_val(int number)
+int	absol_val(int number)
 {
 	if (number < 0)
 		return (number * -1);
