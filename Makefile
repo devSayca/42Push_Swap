@@ -10,40 +10,57 @@
 #                                                                              #
 # **************************************************************************** #
 
-# --- PROJECT ---
-NAME		= 	push_swap
-BONUS_NAME	= 	checker
-INCLUDES	=	-I include
+NAME        = push_swap
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror -I./include
 
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror $(INCLUDES)
+SRC_DIR     = src
+OBJ_DIR     = obj
 
-# --- SOURCES ---
-SRCS		=	src/main.c \
-				<><> TO FILL <><>
+# --- SOURCES (in separated responsabilities) --- #
+SRC_MAIN    = main.c
 
-BONUS_SRCS	=	<><> TO FILL <><>
+SRC_MGR     = managers/initialization.c \
+              managers/checks.c \
+              managers/flags.c \
+              managers/metrics.c \
+              managers/strategy.c \
+              managers/benchmark.c
 
-OBJS		=	$(SRCS:.c=.o)
-BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+SRC_ALGO    = algorithms/algo_simple.c \
+              algorithms/algo_medium.c \
+              algorithms/algo_complex.c
 
-# --- RULES --- | @jferone to @all : Please don't touch this except for bonus
-all:	$(NAME)
+SRC_OPS     = operations/ops_push.c \
+              operations/ops_swap.c \
+              operations/ops_rotate.c \
+              operations/ops_rrotate.c
 
-$(NAME):	$(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+SRC_UTILS   = utils/cleanup.c \
+              utils/cost.c \
+              utils/wrappers.c
 
-bonus:	$(BONUS_NAME)
+# --- CONCATENATION ---
+SRCS        = $(addprefix $(SRC_DIR)/, $(SRC_MAIN) $(SRC_MGR) $(SRC_ALGO) $(SRC_OPS) $(SRC_UTILS))
+OBJS        = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
-$(BONUS_NAME):	$(OBJS) $(BONUS_OBJS)
-			$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJS) -o $(BONUS_NAME)
+# --- RULES ---
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+# Redirects each objects in their folder, NOT in the root file.
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME) $(BONUS_NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

@@ -11,7 +11,7 @@ We need to sort these numbers really fast, with only two stacks as the following
 
 > stack **b** : `(empty)`
 
-This program gives `user` the choice to select one of our **3 algo strategies**, or a **default adaptive strategy** wich can choose the right algo based on the original's stack disorder calculation.
+This program gives `user` the choice to select one of our **3 algo strategies**, or a **default adaptive strategy** wich can select the right algo based on the original's stack disorder calculation.
 
 ---
 
@@ -19,7 +19,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 
 ```
 ├── include
-│   └── push_swap.h		# PROGRAM'S CONTRACT: Structures + Prototypes
+│   └── push_swap.h		# PROGRAM'S CONTRACT: Enumerations, Structures, Function prototypes
 │
 ├── src
 │   ├── main.c			# ORCHESTRATION: Init -> Flags -> Check -> Dispatch -> Free
@@ -70,7 +70,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 *Does nothing if **b** is empty.*
 
 - **pb** - `push to b` push the top of *a to the top of *b.
-*Does noting if **a** is empty.*
+*Does nothing if **a** is empty.*
 
 
 
@@ -82,7 +82,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 - **rb** - `rotate b` : shift up all elements of stack *a by one.
 *The first element becomes the last one.*
 
-- **rr** - `"rotate-rotate"` : ra & rb combined in one operation. *Eco move.*
+- **rr** - `"rotates"` : ra & rb combined in one operation. *Eco move.*
 
 
 
@@ -94,16 +94,16 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 - **rrb** - `reverse rotate b` : Shift down all elements of stack *b by one.
 *The last element becomes the first one.*
 
-- **rrr** - `"reverso-rotato"` : rra and rrb at the same time. *Eco move.*
+- **rrr** - `"reverse-rotates"` : rra and rrb at the same time. *Eco move.*
 
 
 ---
 ## `PushSwap` ADDITIONNAL SECTION
 
-A **few methods** exists, so we choosed 4 specific algorithms for the 4 following modes.
+A **few methods** exists, so we selected 4 specific algorithms for the 4 following modes.
 
 
-### Technical choices and explainations
+### Technical choices and explanations
 
 ### 1. `--simple`
 #### Insertion Sort
@@ -177,7 +177,7 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 - Init, 
 - Simple algo implementation.
 
-### **USAGE EXEMPLES**
+### **USAGE EXAMPLES**
 
 - Using
 - 
@@ -200,7 +200,7 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 
 # AI USAGE
 
-0. **No LLM** used to replace human intelligence & cognition.
+0. **LLM used for** syntax checking, optimization research, and generating boilerplate documentation. 
 
 1. **No LLM** for generating Readme, Makefile, Headers, Source codes.
 

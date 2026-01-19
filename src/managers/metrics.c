@@ -15,8 +15,27 @@
 // Quick read: 
 int		is_sorted();
 
-// Quick read: 
-int		compute_disorder();
+// Quick read: Disorder evaluation of stack a.
+void	compute_disorder(t_gcb *gcb)
+{
+	t_stack	*tmp;
+	int		breaks;
+
+    if (gcb->size_a < 2)
+	{
+		gcb->disorder = 0.0;
+        return ;
+    }
+    tmp = gcb->a;
+    breaks = 0;
+    while (tmp && tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			 breaks++;
+		tmp = tmp->next;
+    }
+	gcb->disorder = (double)breaks / (double)(gcb->size_a - 1);
+}
 
 /* LEGACY @jferone's FUNCTIONS TO REWORK */
 // Reminder: Signs 0/1 condition verification
