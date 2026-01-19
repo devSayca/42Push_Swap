@@ -6,9 +6,11 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:13 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/15 23:43:13 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/19 17:48:55 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	free_stack(t_stack **stack)
 {

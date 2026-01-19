@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.c                                        :+:      :+:    :+:   */
+/*   mgr_initialization.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 00:03:20 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/16 00:03:20 by jferone          ###   ########.fr       */
+/*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
+/*   Updated: 2026/01/19 17:54:08 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Quick read: Writes the bench report in STDEER.
-char    print_benchmark();
+// Quick read: Mallocs t_app and init all values to 0/null.
+int		init_app();
+
+// Quick read: Fills stack *a from argv.
+int		init_stack_a();

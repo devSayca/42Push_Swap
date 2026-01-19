@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wrappers.c                                         :+:      :+:    :+:   */
+/*   utils_wrappers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:57 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/15 23:43:57 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/19 17:54:37 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-// CAUTION ! REWORK ATOI TO GET ATOL (Long & long long overflow)
+// CAUTION ! REWORK ATOI TO GET ATOL (Long & long long overflow control)
 // Quick read: 
 long int	ft_atol_strict(const char *str)
 {

@@ -18,38 +18,39 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 # ARCHITECTURE
 
 ```
-├── include
-│   └── push_swap.h		# PROGRAM'S CONTRACT: Enumerations, Structures, Function prototypes
+.\
 │
-├── src
-│   ├── main.c			# ORCHESTRATION: Init -> Flags -> Check -> Dispatch -> Free
-│   │
-│   ├── algorithms/		# STRATEGY PATTERN
-│   │   ├── algo_simple.c		# O(n^2)		: Insertion logic
-│   │   ├── algo_medium.c		# O(n√n)		: Chunks logic
-│   │   └── algo_complex.c		# O(nlogn)-like	: Cost approach (Turk Sort)
-│	│							  for peak performance in subject's bonus.
-│   │
-│   ├── managers/		# PROGRAM'S BRAIN
-│   │   ├── initialization.c	# Stack initialisation & argv parsing
-│   │   ├── checks.c			# Input validations
-│   │   ├── flags.c				# Flags management
-│   │   ├── metrics.c			# Disorder  & is_sorted (Mandatory & Bench)
-│   │   ├── strategy.c			# Dispatcher by flags or disorder calculation
-│   │   └── benchmark.c			# Displaying stats in STDERR
-│   │
-│   ├── operations/		# PUSHSWAP OPERATIONS
-│   │   ├── ops_push.c			# pa, pb
-│   │   ├── ops_rotate.c		# ra, rb, rr
-│   │   ├── ops_rrotate.c		# rra, rrb, rrr
-│   │   └── ops_swap.c			# sa, sb, ss
-│   │
-│   └── utils/			# CLEANING & HELPING TOOLS
-│       ├── cleanup.c			# free_stack, free_all, error_exit
-│       ├── cost.c				# cost calculator for our complex algorithm
-│       └── wrappers.c			# ft_atol & writers/wrappers
+│	PROGRAM'S CONTRACT : Enumerations, Structures & Prototypes
+├── push_swap.h
 │
-└── Makefile  <-- You are here
+│	ORCHESTRATION : Init, Flags, Check, Dispatch, Free
+├── main.c 
+│
+│	ALGORITHMS : Mathematical strategies
+├── algo_simple.c		# O(n^2)		: Insertion logic
+├── algo_medium.c		# O(n√n)		: Chunks logic
+├── algo_complex.c		# O(nlogn)-like	: Turk greedy cost approach (peak performance for bonus)
+│
+│	MANAGERS : Program's brain
+├── mgr_init.c			# Stack initialisation & argv parsing
+├── mgr_checks.c		# Input validations
+├── mgr_flags.c			# Flags management
+├── mgr_metrics.c		# Disorder  & is_sorted (Mandatory & Bench)
+├── mgr_strategy.c		# Dispatcher by flags or disorder calculation
+├── mgr_benchmark.c		# Displaying stats in STDERR
+│
+│	PUSHSWAP OPERATIONS
+├── ops_push.c			# pa, pb
+├── ops_rotate.c		# ra, rb, rr
+├── ops_rrotate.c		# rra, rrb, rrr
+├── ops_swap.c			# sa, sb, ss
+│
+│	UTILS : Cleaning & helping tools
+├── utils_cleanup.c		# free_stack, free_all, error_exit
+├── utils_cost.c		# cost calculator for our complex algorithm
+├── utils_wrappers.c	# ft_atol & writers/wrappers
+│
+└── Makefile
 ```
 
 ## Operations
