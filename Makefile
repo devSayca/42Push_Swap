@@ -6,7 +6,7 @@
 #    By: jferone <jferone@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/15 21:53:51 by jferone           #+#    #+#              #
-#    Updated: 2026/01/19 17:58:09 by jferone          ###   ########.fr        #
+#    Updated: 2026/01/20 18:32:59 by jferone          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC		= main.c \
 		utils_wrappers.c
 
 OBJ		= 
+# DON'T FORGET TO CHECK OBJS IMPLEMENTATION AND SOURCE TRANSFORMATION
 
 # === RULES === #
 all: $(NAME)

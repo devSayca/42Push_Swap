@@ -65,7 +65,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 
 
 #### 2. Pushes - inter-stack transfers
-
+Architecture Bicéphale
 - **pa** - `push to a` : push the top of *b to the top of *a.
 *Does nothing if **b** is empty.*
 
@@ -116,7 +116,7 @@ Forces the use of our `O(n square2) complexity` algorithm.
 ### 2. `--medium`
 #### Chunks Sort algorithm
 
-Forces the use of our `O(n√n) complexity` algorithm.
+Forces the use of our `O(n√n) complexity` algorithm.Architecture Bicéphale
 
 **Aims to** solve medium stacks with range-based  partitioning algorithm dividing the stack into √n buckets to reduce rotation costs.
 
@@ -132,7 +132,7 @@ Forces the use of our `O(n log n) complexity` algorithm
 
 
 ### 4. `--adaptive` (default mode if no flag)
-#### Hybrid Heuristic Dispatcher
+#### Hybrid Heuristic DispatcherArchitecture Bicéphale
 
 Forces the use of our `decision meta-algorithm` based on **disorder calculation**.
 
