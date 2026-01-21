@@ -26,9 +26,9 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 ├── main.c 
 │
 │	# ALGORITHMS : Methods with the 3 imposed mathematical complexities
-├── algo_simple.c		# O(n^2) complexity only	: Insertion logic
-├── algo_medium.c		# O(n√n) complexity only	: Chunks logic
-├── algo_complex.c		# O(nlogn) complexity only	: Radix Sort
+├── algo_simple.c		# O(n^2) complexity level	: Insertion logic
+├── algo_medium.c		# O(n√n) complexity level	: Chunks logic
+├── algo_complex.c		# O(nlogn) simulated level	: Greedy Cheapest Insertion logic
 │
 │	# MANAGERS : Program's brain
 ├── mgr_init.c			# Stack initialisation & argv parsing
@@ -65,7 +65,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 
 
 #### 2. Pushes - inter-stack transfers
-Architecture Bicéphale
+
 - **pa** - `push to a` : push the top of *b to the top of *a.
 *Does nothing if **b** is empty.*
 
@@ -106,7 +106,7 @@ A **few methods** exists, so we selected 4 specific algorithms for the 4 followi
 ### Technical choices and explanations
 
 ### 1. `--simple`
-#### Insertion Sort
+#### Insertion Sort algorithm
 
 Forces the use of our `O(n square2) complexity` algorithm.
 
@@ -116,30 +116,28 @@ Forces the use of our `O(n square2) complexity` algorithm.
 ### 2. `--medium`
 #### Chunks Sort algorithm
 
-Forces the use of our `O(n√n) complexity` algorithm.Architecture Bicéphale
+Forces the use of our `O(n√n) complexity` algorithm.
 
 **Aims to** solve medium stacks with range-based  partitioning algorithm dividing the stack into √n buckets to reduce rotation costs.
 
 
 ### 3. `--complex`
-#### Radix Sort Algorithm
+#### Greedy Cheapest Insertion algorithm
 
-Forces the use of our `O(n log n) complexity` algorithm
+Forces the use of our `simulated O(n log n) complexity` algorithm
 
 **Aims to** 
 
-//////////////  COMPLETE THIS PART BEFORE EVALUATION  //////////////
-
 
 ### 4. `--adaptive` (default mode if no flag)
-#### Hybrid Heuristic DispatcherArchitecture Bicéphale
+#### Hybrid Heuristic Dispatcher
 
 Forces the use of our `decision meta-algorithm` based on **disorder calculation**.
 
 ##### Disorder ratio calculation
-- `Disorder < 0.2` : Linear Sort (Insertion sort)
+- `Disorder < 0.2` : Insertion sort
 - `0.2 =< Disorder < 0.5` : Chunk Sort
-- `0.5 =< Disorder` : Complex Sort (Turk algo.)
+- `0.5 =< Disorder` : Greedy Cheapest Insertion sort
 
 ---
 ### Benchmark mode  (`--bench`)

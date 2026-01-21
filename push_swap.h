@@ -16,9 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include <stdio.h>
 # include <stdbool.h>
 # include <limits.h>
+// # include <stdio.h> (used for printf in extra-evaluation tests)
 
 /* ===== ENUMERATIONS ===== */
 

@@ -14,33 +14,48 @@
 
 void	free_stack(t_stack **stack)
 {
+	t_stack *current;
 	t_stack	*tmp;
 
 	if (!stack || !(*stack))
 		return ;
-	while (*stack)
+	current = *stack;
+	while (current)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		tmp = (current)->next;
+		free(current);
+		current = tmp;
 	}
 	*stack = NULL;
 }
 
-// Returns the absolute value of a pos/neg Number (measures its distance from 0)
-int	absol_val(int number)
+// Quick read: Free GCB stack memory
+void	free_gcb(t_gcb *gcb)
 {
-	if (number < 0)
-		return (number * -1);
-	return (number);
+	if (gcb->a)
+		free_stack(&gcb->a);
+	if (gcb->b)
+		free_stack(&gcb->b);
 }
 
-void	error_exit(t_stack **stack_a, t_stack **stack_b)
+// Quick read: Clears GCB memory, can write specific errors, exit with (1) code.
+// NOTA BENE: The subject requires us to return a blind "Error" message.
+void	error_exit(t_gcb *gcb, char *msg)
 {
-	if (stack_a == NULL || *stack_a != NULL)
-		free_stack(stack_a);
-	if (stack_b == NULL || *stack_b != NULL)
-		free_stack(stack_b);
-	write(2, "Error\n", 6);
+	int	msg_len;
+
+	if (gcb)
+		free_gcb(gcb);
+	if (msg)
+	{
+		msg_len = 0;
+		while (msg[msg_len])
+		{
+			write(2, &msg[msg_len], 1);
+			msg_len++;
+		}
+	}
+	else
+		write(2, "Error\n", 6);
 	exit (1);
 }

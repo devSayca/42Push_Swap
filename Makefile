@@ -15,7 +15,7 @@ CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -I./include
 
 # === SOURCES === # (Main, Managers, Algorithms, Operations, Utils)
-SRC		= main.c \
+SRCS	= main.c \
 		mgr_init.c \
 		mgr_checks.c \
 		mgr_flags.c \
@@ -33,8 +33,7 @@ SRC		= main.c \
 		utils_cost.c \
 		utils_wrappers.c
 
-OBJ		= 
-# DON'T FORGET TO CHECK OBJS IMPLEMENTATION AND SOURCE TRANSFORMATION
+OBJS	= $(SRCS:.c=.o)
 
 # === RULES === #
 all: $(NAME)
@@ -43,7 +42,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJS)
 
 fclean: clean
 	@rm -f $(NAME)
