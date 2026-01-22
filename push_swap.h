@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/20 17:56:05 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/22 14:16:28 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,11 +148,11 @@ t_stack	*get_cheapest_node(t_stack *stack);
 
 // utils_wrappers.c			TO DO
 long	ft_atol_strict(const char *str, t_gcb *gcb);
-void	ft_putstr(char *str)
-int		absol_val(int nbr)
+void	ft_putstr(char *str);
+int		absol_val(int nbr);
 
 /* ===== MAIN FUNCTION ===== */
 // main.c
-int		main(int argc, char **argv);
+int		main(int argc, char **argv);;
 
 #endif
