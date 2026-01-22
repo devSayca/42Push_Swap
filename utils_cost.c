@@ -12,3 +12,8 @@
 
 #include "push_swap.h"
 
+void	set_target_positions(t_gcb *gcb);
+
+void	calculate_move_cost(t_gcb *gcb);
+
+t_stack	*get_cheapest_node(t_stack *stack);

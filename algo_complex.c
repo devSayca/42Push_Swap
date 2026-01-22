@@ -13,4 +13,4 @@
 #include "push_swap.h"
 
 // flag --complex : "Radix sort algorithm" application.
-int     solve_complex();
+void	solve_complex(t_gcb *gcb);

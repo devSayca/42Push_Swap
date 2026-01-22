@@ -12,9 +12,8 @@
 
 #include "push_swap.h"
 
-// Quick read: Mallocs t_app and init all values to 0/null.
-int		init_app();
+// Quick read: Mallocs GCB and init all values to 0/null.
+void	init_gcb(t_gcb *gcb);
 
 // Quick read: Fills stack *a from argv.
-int		init_stack_a();
-
+void	init_stack_a(t_gcb *gcb, char **argv, int start_index);

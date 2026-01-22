@@ -13,10 +13,10 @@
 #include "push_swap.h"
 
 // Quick read: sa operation
-int     op_sa();
+int     op_sa(t_gcb *gcb, bool print);
 
 // Quick read: sb operation
-int     op_sb();
+int     op_sb(t_gcb *gcb, bool print);
 
 // Quick read: ss operation
-int     op_ss();
+int     op_ss(t_gcb *gcb, bool print);

@@ -13,4 +13,4 @@
 #include "push_swap.h"
 
 // flag --simple : "Insertion algorithm" algorithm.
-int		solve_simple();
+void	solve_simple(t_gcb *gcb);

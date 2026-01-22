@@ -13,8 +13,8 @@
 #include "push_swap.h"
 
 // Quick read: pa operation
-int     op_pa();
+int     op_pa(t_gcb *gcb, bool print);
 
 // Quick read: pb operation
-int     op_pb();
+int     op_pb(t_gcb *gcb, bool print);
 

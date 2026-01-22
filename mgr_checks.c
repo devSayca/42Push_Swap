@@ -13,8 +13,8 @@
 #include "push_swap.h"
 
 // Quick read: Checks if argc contains numbers.
-int		check_syntax();
+void	check_syntax(char *str);
 
 // Quick read: Checks duplications.
-int		check_duplicates();
+void	check_duplicates(t_stack *a);
 

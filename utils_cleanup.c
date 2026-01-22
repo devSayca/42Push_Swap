@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Quick read: Free StackStruct stack memory
 void	free_stack(t_stack **stack)
 {
 	t_stack *current;
@@ -29,7 +30,7 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-// Quick read: Free GCB stack memory
+// Quick read: Free GCB stacks memory
 void	free_gcb(t_gcb *gcb)
 {
 	if (gcb->a)
@@ -38,8 +39,8 @@ void	free_gcb(t_gcb *gcb)
 		free_stack(&gcb->b);
 }
 
+// CAUTION: The subject requires us to return a blind "Error\n" message.
 // Quick read: Clears GCB memory, can write specific errors, exit with (1) code.
-// NOTA BENE: The subject requires us to return a blind "Error" message.
 void	error_exit(t_gcb *gcb, char *msg)
 {
 	int	msg_len;

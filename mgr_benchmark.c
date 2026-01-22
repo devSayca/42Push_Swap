@@ -13,5 +13,5 @@
 #include "push_swap.h"
 
 // Quick read: Writes the bench report in STDEER.
-char    print_benchmark();
+void	print_benchmark(t_gcb *gcb);
 

@@ -13,4 +13,4 @@
 #include "push_swap.h"
 
 // flag --medium : "Chunk algorithm" application.
-int		solve_medium();
+void	solve_medium(t_gcb *gcb);

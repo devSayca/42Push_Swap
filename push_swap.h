@@ -18,7 +18,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include <limits.h>
-// # include <stdio.h> (used for printf in extra-evaluation tests)
+// # include <stdio.h>
 
 /* ===== ENUMERATIONS ===== */
 
@@ -87,66 +87,69 @@ typedef struct s_gcb
 /* Managers, Algorithms, Operations, Utils. */
 /* ======================================== */
 
-// mgr_initialization.c
+// mgr_initialization.c		TO DO
 void	init_gcb(t_gcb *gcb);
 void	init_stack_a(t_gcb *gcb, char **argv, int start_index);
 
-// mgr_checks.c
+// mgr_checks.c				TO DO
 void	check_syntax(char *str);
 void	check_duplicates(t_stack *a);
 
-// mgr_flags.c
+// mgr_flags.c				OK
 int		parse_flags(t_gcb *gcb, int argc, char **argv);
 
-// mgr_metrics.c
-bool	is_sorted(t_stack *stack);
+// mgr_metrics.c			TO FINISH
+bool	is_sorted(t_stack *stack);		
 void	compute_disorder(t_gcb *gcb);
 
-// mgr_strategy.c
+// mgr_strategy.c			OK
 void	dispatch_strategy(t_gcb *gcb);
 
-// mgr_benchmark.c
+// mgr_benchmark.c			TO DO
 void	print_benchmark(t_gcb *gcb);
 
-// algo_simple.c
+// algo_simple.c			TO DO
 void	solve_simple(t_gcb *gcb);
 
-// algo_medium.c
+// algo_medium.c			TO DO
 void	solve_medium(t_gcb *gcb);
 
-// algo_complex.c
+// algo_complex.c			TO DO
 void	solve_complex(t_gcb *gcb);
 
-// ops_swap.c
+// ops_swap.c				TO DO
 void	op_sa(t_gcb *gcb, bool print);
 void	op_sb(t_gcb *gcb, bool print);
 void	op_ss(t_gcb *gcb, bool print);
 
-// ops_push.c
+// ops_push.c				TO DO
 void	op_pa(t_gcb *gcb, bool print);
 void	op_pb(t_gcb *gcb, bool print);
 
-// ops_rotate.c
+// ops_rotate.c				TO DO
 void	op_ra(t_gcb *gcb, bool print);
 void	op_rb(t_gcb *gcb, bool print);
 void	op_rr(t_gcb *gcb, bool print);
 
-// ops_rrotate.c
+// ops_rrotate.c			TO DO
 void	op_rra(t_gcb *gcb, bool print);
 void	op_rrb(t_gcb *gcb, bool print);
 void	op_rrr(t_gcb *gcb, bool print);
 
-// utils_cleanup.c
+// utils_cleanup.c			TO DO
+void	free_stack(t_stack **stack);	// jferone: LOGIC ERROR ?
 void	free_gcb(t_gcb *gcb);
 void	error_exit(t_gcb *gcb, char *msg);
 
-// utils_cost.c	(helpers for complex algorithm)
+// utils_cost.c				TO DO		(complex algo helpers)
 void	set_target_positions(t_gcb *gcb);
 void	calculate_move_cost(t_gcb *gcb);
 t_stack	*get_cheapest_node(t_stack *stack);
 
-// utils_wrappers.c
+// utils_wrappers.c			TO DO
 long	ft_atol_strict(const char *str, t_gcb *gcb);
+void	ft_putstr(char *str)
+int		absol_val(int nbr)
 
 /* ===== MAIN FUNCTION ===== */
 // main.c

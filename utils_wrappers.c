@@ -41,7 +41,7 @@ int		absol_val(int nbr)
 	return (nbr);
 }
 
-// Quick read: Signs, Errors and Int-Overflow control (Need <limits.h>)
+// Quick read: Controls signs, Errors and Int-overflows (needs <limits.h>)
 long	ft_atol_strict(const char *str, t_gcb *gcb)
 {
 	long	nbr;
