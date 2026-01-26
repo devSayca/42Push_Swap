@@ -20,10 +20,11 @@
 # include <limits.h>
 // # include <stdio.h>
 
-/* ===== ENUMERATIONS ===== */
+/* _________________________________ */
+/* -------- ENUMS & STRUCTS -------- */
 
-/* --- OPERATIONS ENUM --- */
-// Used for benchmark's statboard.
+/* OPERATIONS COUNTER ENUM */
+// Used for bench's statboard.
 typedef enum e_op
 {
 	OP_SA,
@@ -40,8 +41,8 @@ typedef enum e_op
 	OP_COUNT
 }	t_op;
 
-/* --- FLAG MODES ENUM --- */
-// Default mode is --adaptive. The last flag wins. --bench is additional.
+/* ALGO-MODE FLAGS ENUM */
+// Default: --adaptive | Choose: last flag | Additionnal: --bench
 typedef enum e_mode
 {
 	MODE_ADAPTIVE,
@@ -51,7 +52,7 @@ typedef enum e_mode
 	MODE_BENCH
 }	t_mode;
 
-/* --- STACK NODE STRUCTURE --- */
+/* STACKS NODE STRUCT */
 typedef struct s_stack
 {
 	int				value;
@@ -66,7 +67,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-/* --- GLOBAL CONTEXT BRAIN (GCB) STRUCTURE ---*/
+/* GLOBAL CONTEXT BRAIN (GCB) STRUCT */
 typedef struct s_gcb
 {
 	t_stack	*a;
@@ -81,78 +82,80 @@ typedef struct s_gcb
 	t_mode	mode;
 	bool	f_bench;
 }	t_gcb;
+/* _________________________________ */
 
-/* ======================================== */
-/* -------------- PROTOTYPES -------------- */
-/* Managers, Algorithms, Operations, Utils. */
-/* ======================================== */
+/* ________________________________________ */
+// --------------- FUNCTIONS -------------- */
+// Managers, Algorithms, Operations, Utils. */
 
-// mgr_initialization.c		TO DO
-void	init_gcb(t_gcb *gcb);
-void	init_stack_a(t_gcb *gcb, char **argv, int start_index);
+// mgr_initialization.c
+void		init_gcb(t_gcb *gcb);
+void		init_stack_a(t_gcb *gcb, char **argv, int start_index);
 
-// mgr_checks.c				TO DO
-void	check_syntax(char *str);
-void	check_duplicates(t_stack *a);
+// mgr_checks.c
+void		check_syntax(t_gcb *gcb, char *str);
+void		check_duplicates(t_gcb *gcb);
 
-// mgr_flags.c				OK
-int		parse_flags(t_gcb *gcb, int argc, char **argv);
+// mgr_flags.c
+int			parse_flags(t_gcb *gcb, int argc, char **argv);
 
-// mgr_metrics.c			TO FINISH
-bool	is_sorted(t_stack *stack);		
-void	compute_disorder(t_gcb *gcb);
+// mgr_metrics.c
+bool		is_sorted(t_stack *stack);		
+void		compute_disorder(t_gcb *gcb);
 
-// mgr_strategy.c			OK
-void	dispatch_strategy(t_gcb *gcb);
+// mgr_strategy.c
+void		dispatch_strategy(t_gcb *gcb);
 
-// mgr_benchmark.c			TO DO
-void	print_benchmark(t_gcb *gcb);
+// mgr_benchmark.c
+void		print_benchmark(t_gcb *gcb);
 
-// algo_simple.c			TO DO
-void	solve_simple(t_gcb *gcb);
+// algo_simple.c
+void		solve_simple(t_gcb *gcb);
 
-// algo_medium.c			TO DO
-void	solve_medium(t_gcb *gcb);
+// algo_medium.c
+void		solve_medium(t_gcb *gcb);
 
-// algo_complex.c			TO DO
-void	solve_complex(t_gcb *gcb);
+// algo_complex.c
+void		solve_complex(t_gcb *gcb);
 
-// ops_swap.c				TO DO
-void	op_sa(t_gcb *gcb, bool print);
-void	op_sb(t_gcb *gcb, bool print);
-void	op_ss(t_gcb *gcb, bool print);
+// ops_swap.c
+void		op_sa(t_gcb *gcb, bool print);
+void		op_sb(t_gcb *gcb, bool print);
+void		op_ss(t_gcb *gcb, bool print);
 
-// ops_push.c				TO DO
-void	op_pa(t_gcb *gcb, bool print);
-void	op_pb(t_gcb *gcb, bool print);
+// ops_push.c
+void		op_pa(t_gcb *gcb, bool print);
+void		op_pb(t_gcb *gcb, bool print);
 
-// ops_rotate.c				TO DO
-void	op_ra(t_gcb *gcb, bool print);
-void	op_rb(t_gcb *gcb, bool print);
-void	op_rr(t_gcb *gcb, bool print);
+// ops_rotate.c
+void		op_ra(t_gcb *gcb, bool print);
+void		op_rb(t_gcb *gcb, bool print);
+void		op_rr(t_gcb *gcb, bool print);
 
-// ops_rrotate.c			TO DO
-void	op_rra(t_gcb *gcb, bool print);
-void	op_rrb(t_gcb *gcb, bool print);
-void	op_rrr(t_gcb *gcb, bool print);
+// ops_rrotate.c
+void		op_rra(t_gcb *gcb, bool print);
+void		op_rrb(t_gcb *gcb, bool print);
+void		op_rrr(t_gcb *gcb, bool print);
 
-// utils_cleanup.c			TO DO
-void	free_stack(t_stack **stack);	// jferone: LOGIC ERROR ?
-void	free_gcb(t_gcb *gcb);
-void	error_exit(t_gcb *gcb, char *msg);
+// utils_cleanup.c
+void		free_stack(t_stack **stack);
+void		free_gcb(t_gcb *gcb);
+void		error_exit(t_gcb *gcb, char *msg);
 
-// utils_cost.c				TO DO		(complex algo helpers)
-void	set_target_positions(t_gcb *gcb);
-void	calculate_move_cost(t_gcb *gcb);
-t_stack	*get_cheapest_node(t_stack *stack);
+// utils_cost.c
+void		set_target_positions(t_gcb *gcb);
+void		calculate_move_cost(t_gcb *gcb);
+t_stack		*get_cheapest_node(t_stack *stack);
 
-// utils_wrappers.c			TO DO
-long	ft_atol_strict(const char *str, t_gcb *gcb);
-void	ft_putstr(char *str)
-int		absol_val(int nbr)
+// utils_wrappers.c (atoll for universal "overflowed 32 by 64bits" checker)
+long long	ft_atoll_strict(const char *str, t_gcb *gcb);
+void		ft_putstr(char *str);
+int			absol_val(int nbr);
+/* ________________________________________ */
 
-/* ===== MAIN FUNCTION ===== */
-// main.c
-int		main(int argc, char **argv);
+/* _______________________________ */
+/* -------- MAIN FUNCTION -------- */
+int			main(int argc, char **argv);
+/* _______________________________ */
 
 #endif

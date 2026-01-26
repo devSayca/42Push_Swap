@@ -19,7 +19,7 @@ static int	is_digit(char c)
 }
 
 // Quick read: Shows/cast an entire string of chars
-void	ft_putstr(char *str)
+void		ft_putstr(char *str)
 {
 	int	cursor;
 
@@ -41,32 +41,30 @@ int		absol_val(int nbr)
 	return (nbr);
 }
 
-// Quick read: Controls signs, Errors and Int-overflows (needs <limits.h>)
-long	ft_atol_strict(const char *str, t_gcb *gcb)
+// Quick read: Universal 64 bits sign parser, returns error if 32bits overflows.
+long long	ft_atoll_strict32(const char *str, t_gcb *gcb)
 {
-	long	nbr;
-	int		cursor;
-	int		sign;
+	long long	nbr;
+	int			cursor;
+	int			sign;
 
 	nbr = 0;
 	cursor = 0;
 	sign = 1;
-	if (str[cursor] == '+' || str[cursor] == '-')
-	{
-		if (str[cursor] == '-')
+	if (str[cursor] == '+' || str[i] == '-')
+		if (str[cursor++] == '-')
 			sign = -1;
-		cursor++;
-	}
 	if (!str[cursor])
 		error_exit(gcb, "Error\n");
 	while (str[cursor])
 	{
-		if (!is_digit(str[cursor]))
+		if (str[cursor] < '0' || str[cursor] > '9')
 			error_exit(gcb, "Error\n");
-		nbr = nbr * 10 + (str[cursor] - '0');
-		if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && (-nbr) < INT_MIN))
+		if (nbr > (LLONG_MAX - (str[cursor] - '0')) / 10)
 			error_exit(gcb, "Error\n");
-		cursor++;
+		nbr = nbr * 10 + (str[cursor++] - '0');
+		if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr > 2147483648ULL))
+			error_exit(gcb, "Error\n");
 	}
 	return (nbr * sign);
 }

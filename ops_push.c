@@ -12,9 +12,46 @@
 
 #include "push_swap.h"
 
-// Quick read: pa operation
-int     op_pa(t_gcb *gcb, bool print);
+// Quick read: Internal push logic (Source -> Dest).
+static void	push(t_stack **dest, t_stack **src)
+{
+	t_stack	*tmp;
 
-// Quick read: pb operation
-int     op_pb(t_gcb *gcb, bool print);
+	if (!src || !*src)
+		return ;
+	tmp = *src;
+	*src = tmp->next;
+	if (*src)
+		(*src)->prev = NULL;
+	tmp->next = *dest;
+	if (*dest)
+		(*dest)->prev = tmp;
+	*dest = tmp;
+	tmp->prev = NULL;
+}
 
+void	op_pa(t_gcb *gcb, bool print)
+{
+	if (!gcb->b)
+		return ;
+	push(&(gcb->a), &(gcb->b));
+	gcb->size_a++;
+	gcb->size_b--;
+	gcb->ops_total++;
+	gcb->ops_stats[OP_PA]++;
+	if (print)
+		write(1, "pa\n", 3);
+}
+
+void	op_pb(t_gcb *gcb, bool print)
+{
+	if (!gcb->a)
+		return ;
+	push(&(gcb->b), &(gcb->a));
+	gcb->size_a--;
+	gcb->size_b++;
+	gcb->ops_total++;
+	gcb->ops_stats[OP_PB]++;
+	if (print)
+		write(1, "pb\n", 3);
+}

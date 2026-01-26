@@ -12,27 +12,57 @@
 
 #include "push_swap.h"
 
-// Quick read: 
-bool	is_sorted(t_stack *stack);
+// Quick read: Checks if *stack is pending for attention (unsorted)
+bool	is_sorted(t_stack *stack)
+{
+	if (!stack)
+		return (true);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
 
-// Quick read: Disorder evaluation of stack a.
+// Quick read: Helper to count inversions for compute_disorder.
+static void	count_inversions(t_stack *cursor, long *mistakes, long *pairs)
+{
+	t_stack	*compare;
+
+	compare = cursor->next;
+	while (compare)
+	{
+		(*pairs)++;
+		if (cursor->value > compare->value)
+			(*mistakes)++;
+		compare = compare->next;
+	}
+}
+
+// Quick read: Calculates disorder ratio according to subject rules.
 void	compute_disorder(t_gcb *gcb)
 {
-	t_stack	*tmp;
-	int		breaks;
+	t_stack	*cursor;
+	long	mistakes;
+	long	pairs;
 
-    if (gcb->size_a < 2)
+	if (!gcb->a || !gcb->a->next)
 	{
 		gcb->disorder = 0.0;
-        return ;
-    }
-    tmp = gcb->a;
-    breaks = 0;
-    while (tmp && tmp->next)
+		return ;
+	}
+	mistakes = 0;
+	pairs = 0;
+	cursor = gcb->a;
+	while (cursor)
 	{
-		if (tmp->value > tmp->next->value)
-			 breaks++;
-		tmp = tmp->next;
-    }
-	gcb->disorder = (double)breaks / (double)(gcb->size_a - 1);
+		count_inversions(cursor, &mistakes, &pairs);
+		cursor = cursor->next;
+	}
+	if (pairs == 0)
+		gcb->disorder = 0.0;
+	else
+		gcb->disorder = (double)mistakes / (double)pairs;
 }

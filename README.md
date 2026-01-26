@@ -16,6 +16,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 ---
 
 # ARCHITECTURE
+### "Single Source of Truth" architecture type
 
 ```
 .
@@ -38,7 +39,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 ├── mgr_strategy.c		# Dispatcher by flags or disorder calculation
 ├── mgr_benchmark.c		# Displaying stats in STDERR
 │
-│	# PUSHSWAP OPERATIONS
+│	# PUSHSWAP OPERATIONS : These operators are the only authorized to work on stacks *a & *b
 ├── ops_push.c			# pa, pb
 ├── ops_rotate.c		# ra, rb, rr
 ├── ops_rrotate.c		# rra, rrb, rrr

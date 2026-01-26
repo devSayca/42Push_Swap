@@ -16,7 +16,7 @@ CFLAGS      = -Wall -Wextra -Werror -I./include
 
 # === SOURCES === # (Main, Managers, Algorithms, Operations, Utils)
 SRCS	= main.c \
-		mgr_init.c \
+		mgr_initialization.c \
 		mgr_checks.c \
 		mgr_flags.c \
 		mgr_metrics.c \

@@ -12,11 +12,49 @@
 
 #include "push_swap.h"
 
-// Quick read: rra operation
-int     op_rra(t_gcb *gcb, bool print);
+// Quick read: Internal reverse rotate logic (Bottom -> Top).
+static void	reverse_rotate(t_stack **stack)
+{
+	t_stack	*last;
+	t_stack	*penultimate;
 
-// Quick read: rrb operation
-int     op_rrb(t_gcb *gcb, bool print);
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	penultimate = last->prev;
+	penultimate->next = NULL;
+	last->prev = NULL;
+	last->next = *stack;
+	(*stack)->prev = last;
+	*stack = last;
+}
 
-// Quick read: rrr operation
-int     op_rrr(t_gcb *gcb, bool print);
+void	op_rra(t_gcb *gcb, bool print)
+{
+	reverse_rotate(&(gcb->a));
+	gcb->ops_total++;
+	gcb->ops_stats[OP_RRA]++;
+	if (print)
+		write(1, "rra\n", 4);
+}
+
+void	op_rrb(t_gcb *gcb, bool print)
+{
+	reverse_rotate(&(gcb->b));
+	gcb->ops_total++;
+	gcb->ops_stats[OP_RRB]++;
+	if (print)
+		write(1, "rrb\n", 4);
+}
+
+void	op_rrr(t_gcb *gcb, bool print)
+{
+	reverse_rotate(&(gcb->a));
+	reverse_rotate(&(gcb->b));
+	gcb->ops_total++;
+	gcb->ops_stats[OP_RRR]++;
+	if (print)
+		write(1, "rrr\n", 4);
+}
