@@ -32,7 +32,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 ├── algo_complex.c		# O(nlogn) simulated level	: Greedy Cheapest Insertion logic
 │
 │	# MANAGERS : Program's brain
-├── mgr_init.c			# Stack initialisation & argv parsing
+├── mgr_initialization.c			# Stack initialisation & argv parsing
 ├── mgr_checks.c		# Input validations
 ├── mgr_flags.c			# Flags management
 ├── mgr_metrics.c		# Disorder  & is_sorted (Mandatory & Bench)
