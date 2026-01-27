@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:13 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/19 18:08:38 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/27 14:59:07 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Quick read: Free StackStruct stack memory
 void	free_stack(t_stack **stack)
 {
-	t_stack *current;
+	t_stack	*current;
 	t_stack	*tmp;
 
 	if (!stack || !(*stack))

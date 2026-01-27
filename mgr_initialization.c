@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/19 17:58:37 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/27 14:58:56 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	stack_add_back(t_stack **stack, t_stack *new)
 // Quick read: Initializes GCB values to their default states.
 void	init_gcb(t_gcb *gcb)
 {
-    int cursor;
+	int	cursor;
 
 	gcb->a = NULL;
 	gcb->b = NULL;
@@ -63,12 +63,12 @@ void	init_gcb(t_gcb *gcb)
 	gcb->size_b = 0;
 	gcb->mode = MODE_ADAPTIVE;
 	gcb->f_bench = false;
-    cursor = 0;
-    while (cursor < OP_COUNT)
-    {
+	cursor = 0;
+	while (cursor < OP_COUNT)
+	{
 		gcb->ops_stats[cursor] = 0;
-        cursor++;
-    }
+		cursor++;
+	}
 }
 
 // Quick read: Parses argv, validates and builds the initial stack *a.
@@ -80,7 +80,7 @@ void	init_stack_a(t_gcb *gcb, char **argv, int start_index)
 	while (argv[start_index])
 	{
 		check_syntax(gcb, argv[start_index]);
-		val = ft_l_strict(argv[start_index], gcb);
+		val = ft_atoll_strict(argv[start_index], gcb);
 		new_node = stack_new_node((int)val);
 		if (!new_node)
 			error_exit(gcb, "Error\n");

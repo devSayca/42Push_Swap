@@ -6,24 +6,24 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:01:54 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/19 17:55:07 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/27 14:59:01 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool is_sign(char c)
+static bool	is_sign(char c)
 {
-    if (c == '+' || c == '-')
-        return (true);
-    return (false);    
+	if (c == '+' || c == '-')
+		return (true);
+	return (false);
 }
 
-static bool is_digit(char c)
+static bool	is_digit(char c)
 {
-    if (c >= '0' && c <= '9')
-        return (true);
-    return (false);    
+	if (c >= '0' && c <= '9')
+		return (true);
+	return (false);
 }
 
 // Quick read: Checks if argc contains numbers.
