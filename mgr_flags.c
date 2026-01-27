@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:26 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/27 14:59:00 by jferone          ###   ########.fr       */
+/*   Updated: 2026/01/27 20:05:34 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,24 @@ int	parse_flags(t_gcb *gcb, int argc, char **argv)
 	int	cursor;
 
 	cursor = 1;
-	while (cursor < argc)
+	if (cursor < argc && ft_strcmp(argv[cursor], "--bench") == 0)
 	{
-		if (ft_strncmp(argv[cursor], "--", 2) == 0)
-		{
-			if (ft_strcmp(argv[cursor], "--bench") == 0)
-				gcb->f_bench = true;
-			else if (ft_strcmp(argv[cursor], "--simple") == 0)
-				gcb->mode = MODE_SIMPLE;
-			else if (ft_strcmp(argv[cursor], "--medium") == 0)
-				gcb->mode = MODE_MEDIUM;
-			else if (ft_strcmp(argv[cursor], "--complex") == 0)
-				gcb->mode = MODE_COMPLEX;
-			else if (ft_strcmp(argv[cursor], "--adaptive") == 0)
-				gcb->mode = MODE_ADAPTIVE;
-			else
-				error_exit(gcb, "Error\n");
-			cursor++;
-		}
+		gcb->f_bench = true;
+		cursor++;
+	}
+	if (cursor < argc && ft_strncmp(argv[cursor], "--", 2) == 0)
+	{
+		if (ft_strcmp(argv[cursor], "--simple") == 0)
+			gcb->mode = MODE_SIMPLE;
+		else if (ft_strcmp(argv[cursor], "--medium") == 0)
+			gcb->mode = MODE_MEDIUM;
+		else if (ft_strcmp(argv[cursor], "--complex") == 0)
+			gcb->mode = MODE_COMPLEX;
+		else if (ft_strcmp(argv[cursor], "--adaptive") == 0)
+			gcb->mode = MODE_ADAPTIVE;
 		else
-			break ;
+			error_exit(gcb, "Error\n");
+		cursor++;
 	}
 	return (cursor);
 }
