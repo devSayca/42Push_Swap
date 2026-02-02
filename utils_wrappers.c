@@ -12,6 +12,14 @@
 
 #include "push_swap.h"
 
+// Quick read: Absolute value used for cost calculation about complex algorithm
+int	absol_val(int nbr)
+{
+	if (nbr < 0)
+		return (nbr * -1);
+	return (nbr);
+}
+
 // Quick read: Shows/cast an entire string of chars
 void	ft_putstr(char *str)
 {
@@ -25,14 +33,6 @@ void	ft_putstr(char *str)
 		write(1, &str[cursor], 1);
 		cursor++;
 	}
-}
-
-// Quick read: Absolute value of a pos/neg Number (measures its distance from 0)
-int	absol_val(int nbr)
-{
-	if (nbr < 0)
-		return (nbr * -1);
-	return (nbr);
 }
 
 // Quick read: Universal 64 bits sign parser, returns error if 32bits overflows.

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-// Quick read: Static used for parsing "--" activator in argv.
+// Quick read: For "First -- scan process"
 static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			iter;
@@ -29,7 +29,7 @@ static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (c1 - c2);
 }
 
-// Quick read: Static used for parsing flags after their activator in argv.
+// Quick read: For "Detailled flag --XXX scan process"
 static int	ft_strcmp(char *s1, char *s2)
 {
 	if (!s1 && !s2)
@@ -46,20 +46,18 @@ static int	ft_strcmp(char *s1, char *s2)
 	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
-// Quick read: Detects argv --bench, --simple, --medium, --complex, --adaptive.
+// Quick read: A flexible parser. Unix-like: the last flag wins except --bench.
 int	parse_flags(t_gcb *gcb, int argc, char **argv)
 {
 	int	cursor;
 
 	cursor = 1;
-	if (cursor < argc && ft_strcmp(argv[cursor], "--bench") == 0)
-	{
-		gcb->f_bench = true;
-		cursor++;
-	}
-	if (cursor < argc && ft_strncmp(argv[cursor], "--", 2) == 0)
-	{
-		if (ft_strcmp(argv[cursor], "--simple") == 0)
+
+	while (cursor < argc && ft_strncmp(argv[cursor], "--", 2) == 0)
+	{	
+		if (ft_strcmp(argv[cursor], "--bench") == 0)
+			gcb->f_bench = true;
+		else if (ft_strcmp(argv[cursor], "--simple") == 0)
 			gcb->mode = MODE_SIMPLE;
 		else if (ft_strcmp(argv[cursor], "--medium") == 0)
 			gcb->mode = MODE_MEDIUM;
