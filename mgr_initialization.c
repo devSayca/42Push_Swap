@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/27 14:58:56 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:51:53 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	init_stack_a(t_gcb *gcb, char **argv, int start_index)
 		val = ft_atoll_strict(argv[start_index], gcb);
 		new_node = stack_new_node((int)val);
 		if (!new_node)
-			error_exit(gcb, "Error\n");
+			error_exit(gcb, "Error NO NEW NODE\n");
 		stack_add_back(&(gcb->a), new_node);
 		gcb->size_a++;
 		start_index++;

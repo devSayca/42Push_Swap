@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/27 18:30:14 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:31:04 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include <limits.h>
+
+/* \ \ \ Disabled debug tools \ \ \ */
 // # include <stdio.h>
+// write (1, "0123456789abcdef"[x%y], 1);
 
 /* _________________________________ */
 /* -------- ENUMS & STRUCTS -------- */
@@ -40,8 +43,6 @@ typedef enum e_op
 	OP_RRR,
 	OP_COUNT
 }	t_op;
-
-// write (1, "0123456789abcdef"[x%y], 1);  < TO LEARN
 
 /* ALGO-MODE FLAGS ENUM */
 // Default: --adaptive | Choose: last flag | Additionnal: --bench

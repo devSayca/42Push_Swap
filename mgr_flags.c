@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:26 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/27 20:05:34 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:44:19 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,8 @@ int	parse_flags(t_gcb *gcb, int argc, char **argv)
 	int	cursor;
 
 	cursor = 1;
-
 	while (cursor < argc && ft_strncmp(argv[cursor], "--", 2) == 0)
-	{	
+	{
 		if (ft_strcmp(argv[cursor], "--bench") == 0)
 			gcb->f_bench = true;
 		else if (ft_strcmp(argv[cursor], "--simple") == 0)
@@ -66,7 +65,7 @@ int	parse_flags(t_gcb *gcb, int argc, char **argv)
 		else if (ft_strcmp(argv[cursor], "--adaptive") == 0)
 			gcb->mode = MODE_ADAPTIVE;
 		else
-			error_exit(gcb, "Error\n");
+			error_exit(gcb, "Error BAD FLAG\n");
 		cursor++;
 	}
 	return (cursor);

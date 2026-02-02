@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:13 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/27 14:59:07 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:27:00 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	free_gcb(t_gcb *gcb)
 		free_stack(&gcb->b);
 }
 
-// CAUTION: The subject requires us to return a blind "Error\n" message.
+// DEBUG TOOLS: Can return CUSTOM ERRORS (to disable for subject evaluation).
 // Quick read: Clears GCB memory, can write specific errors, exit with (1) code.
 void	error_exit(t_gcb *gcb, char *msg)
 {
