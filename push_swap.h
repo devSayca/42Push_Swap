@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:22:52 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:45:25 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,11 @@
 # include <stdbool.h>
 # include <limits.h>
 
-/*  \ \ \  Disabled debug utils \ \ \ */
-// # include <stdio.h>
-// write (1, "0123456789abcdef"[x%y], 1);
-
 /* _________________________________ */
 /* -------- ENUMS & STRUCTS -------- */
 
 /* OPERATIONS COUNTER ENUM */
-// Used for bench's statboard.
+// For benchmark's statboard.
 typedef enum e_op
 {
 	OP_SA,
@@ -45,7 +41,6 @@ typedef enum e_op
 }	t_op;
 
 /* ALGO-MODE FLAGS ENUM */
-// Default: --adaptive | Choose: last flag | Additionnal: --bench
 typedef enum e_mode
 {
 	MODE_ADAPTIVE,
