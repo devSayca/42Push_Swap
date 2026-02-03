@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mgr_initialization.c                               :+:      :+:    :+:   */
+/*   mgr_initialization_NoQuotedArgs.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:25:58 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 16:20:14 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// HANDLING QUOTED ARGUMENTS VERSION
+// NOT HANDLING QUOTED ARGUMENTS VERSION
 
 // Quick read: Creates a new stack node with default values.
 static t_stack	*stack_new_node(int value)
@@ -73,42 +73,24 @@ void	init_gcb(t_gcb *gcb)
 	}
 }
 
-// Quick read: Serves directly "void init_stack_a"
-static int	skip_number(char *str, int idx)
-{
-	if(str[idx] == '-' || str[idx] == '+')
-		idx++;
-	while (str[idx] >= '0' && str[idx] <= '9')
-		idx++;
-	return (idx);
-}
-
 // Quick read: Parses argv, validates and builds the initial stack *a.
-void	init_stack_a(t_gcb *gcb, char **argv, int start)
+void	init_stack_a(t_gcb *gcb, char **argv, int start_index)
 {
-	t_stack	*new;
-	int		idx;
+	t_stack		*new_node;
+	long long	val;
 
-	while (argv[start])
+	while (argv[start_index])
 	{
-		check_syntax(gcb, argv[start]);
-		idx = 0;
-		while (argv[start][idx])
-		{
-			while (argv[start][idx] == ' ' || (argv[start][idx] >= 9
-				&& argv[start][idx] <= 13))
-				idx++;
-			if (argv[start][idx] == '\0')
-				break ;
-			new = stack_new_node((int)ft_atoll_strict(&argv[start][idx], gcb));
-			if (!new)
-				error_exit(gcb, "Error\n");
-			stack_add_back(&(gcb->a), new);
-			gcb->size_a++;
-			idx = skip_number(argv[start], idx);
-		}
-		start++;
+		check_syntax(gcb, argv[start_index]);
+		val = ft_atoll_strict(argv[start_index], gcb);
+		new_node = stack_new_node((int)val);
+		if (!new_node)
+			error_exit(gcb, "Error NO NEW NODE\n");
+		stack_add_back(&(gcb->a), new_node);
+		gcb->size_a++;
+		start_index++;
 	}
-	if (gcb->size_a > 0)
-		check_duplicates(gcb);
+	if (gcb->size_a == 0)
+		return ;
+	check_duplicates(gcb);
 }

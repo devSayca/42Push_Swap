@@ -6,11 +6,26 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:57 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/02 17:33:07 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 16:23:37 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Quick read: Shows/cast an entire string of chars
+void	ft_putstr(char *str)
+{
+	int	idx;
+
+	idx = 0;
+	if (!str)
+		return ;
+	while (str[idx])
+	{
+		write(1, &str[idx], 1);
+		idx++;
+	}
+}
 
 // Quick read: Absolute value used for cost calculation about complex algorithm
 int	absol_val(int nbr)
@@ -19,44 +34,26 @@ int	absol_val(int nbr)
 		return (nbr * -1);
 	return (nbr);
 }
-
-// Quick read: Shows/cast an entire string of chars
-void	ft_putstr(char *str)
-{
-	int	cursor;
-
-	cursor = 0;
-	if (!str)
-		return ;
-	while (str[cursor])
-	{
-		write(1, &str[cursor], 1);
-		cursor++;
-	}
-}
-
-// Quick read: Universal 64 bits sign parser, returns error if 32bits overflows.
+// Quick read: 64bits parser, stops on non-digit, ERRORS on 32bit overflow.
 long long	ft_atoll_strict(const char *str, t_gcb *gcb)
 {
 	long long	nbr;
-	int			cursor;
+	int			idx;
 	int			sign;
 
 	nbr = 0;
-	cursor = 0;
+	idx = 0;
 	sign = 1;
-	if (str[cursor] == '+' || str[cursor] == '-')
-		if (str[cursor++] == '-')
+	if (str[idx] == '+' || str[idx] == '-')
+		if (str[idx++] == '-')
 			sign = -1;
-	if (!str[cursor])
+	if (!str[idx])
 		error_exit(gcb, "Error NO STRING ATOLL\n");
-	while (str[cursor])
+	while (str[idx])
 	{
-		if (str[cursor] < '0' || str[cursor] > '9')
-			error_exit(gcb, "Error IS NOT DIGIT ATOLL\n");
-		if (nbr > (LLONG_MAX - (str[cursor] - '0')) / 10)
+		if (nbr > (LLONG_MAX - (str[idx] - '0')) / 10)
 			error_exit(gcb, "Error INT OVERFLOW ALPHA\n");
-		nbr = nbr * 10 + (str[cursor++] - '0');
+		nbr = nbr * 10 + (str[idx++] - '0');
 		if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr > 2147483648LL))
 			error_exit(gcb, "Error INT OVERFLOW BRAVO\n");
 	}

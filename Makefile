@@ -6,7 +6,7 @@
 #    By: jferone <jferone@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/15 21:53:51 by jferone           #+#    #+#              #
-#    Updated: 2026/01/20 18:32:59 by jferone          ###   ########.fr        #
+#    Updated: 2026/02/03 15:31:32 by jferone          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS      = -Wall -Wextra -Werror -I./include
 # === SOURCES === # (Main, Managers, Algorithms, Operations, Utils)
 SRCS	= main.c \
 		mgr_initialization.c \
-		mgr_checks.c \
+		mgr_checkers.c \
 		mgr_flags.c \
 		mgr_metrics.c \
 		mgr_strategy.c \

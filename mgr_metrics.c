@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:58:09 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/27 14:58:55 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 16:20:20 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ bool	is_sorted(t_stack *stack)
 }
 
 // Quick read: Helper to count inversions for compute_disorder.
-static void	count_inversions(t_stack *cursor, long *mistakes, long *pairs)
+static void	count_inversions(t_stack *idx, long *mistakes, long *pairs)
 {
 	t_stack	*compare;
 
-	compare = cursor->next;
+	compare = idx->next;
 	while (compare)
 	{
 		(*pairs)++;
-		if (cursor->value > compare->value)
+		if (idx->value > compare->value)
 			(*mistakes)++;
 		compare = compare->next;
 	}
@@ -44,7 +44,7 @@ static void	count_inversions(t_stack *cursor, long *mistakes, long *pairs)
 // Quick read: Calculates disorder ratio according to subject rules.
 void	compute_disorder(t_gcb *gcb)
 {
-	t_stack	*cursor;
+	t_stack	*idx;
 	long	mistakes;
 	long	pairs;
 
@@ -55,11 +55,11 @@ void	compute_disorder(t_gcb *gcb)
 	}
 	mistakes = 0;
 	pairs = 0;
-	cursor = gcb->a;
-	while (cursor)
+	idx = gcb->a;
+	while (idx)
 	{
-		count_inversions(cursor, &mistakes, &pairs);
-		cursor = cursor->next;
+		count_inversions(idx, &mistakes, &pairs);
+		idx = idx->next;
 	}
 	if (pairs == 0)
 		gcb->disorder = 0.0;

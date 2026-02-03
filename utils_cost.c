@@ -6,23 +6,23 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:51 by jferone           #+#    #+#             */
-/*   Updated: 2026/01/27 14:59:06 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 16:20:25 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Quick read: Refresh cursor positions for accurate cost calculation
+// Quick read: Refresh idx positions for accurate cost calculation
 static void	update_positions(t_stack *stack)
 {
-	int	cursor;
+	int	idx;
 
-	cursor = 0;
+	idx = 0;
 	while (stack)
 	{
-		stack->pos = cursor;
+		stack->pos = idx;
 		stack = stack->next;
-		cursor++;
+		idx++;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/02 16:31:04 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 16:22:52 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 # include <limits.h>
 
-/* \ \ \ Disabled debug tools \ \ \ */
+/*  \ \ \  Disabled debug utils \ \ \ */
 // # include <stdio.h>
 // write (1, "0123456789abcdef"[x%y], 1);
 
@@ -95,7 +95,7 @@ typedef struct s_gcb
 void		init_gcb(t_gcb *gcb);
 void		init_stack_a(t_gcb *gcb, char **argv, int start_index);
 
-// mgr_checks.c
+// mgr_checkers.c
 void		check_syntax(t_gcb *gcb, char *str);
 void		check_duplicates(t_gcb *gcb);
 

@@ -33,7 +33,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 │
 │	# MANAGERS : Program's brain
 ├── mgr_initialization.c			# Stack initialisation & argv parsing
-├── mgr_checks.c		# Input validations
+├── mgr_checkers.c		# Input validations
 ├── mgr_flags.c			# Flags management
 ├── mgr_metrics.c		# Disorder  & is_sorted (Mandatory & Bench)
 ├── mgr_strategy.c		# Dispatcher by flags or disorder calculation

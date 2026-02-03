@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:26 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/02 17:44:19 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 16:20:08 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,24 @@ static int	ft_strcmp(char *s1, char *s2)
 // Quick read: A flexible parser. Unix-like: the last flag wins except --bench.
 int	parse_flags(t_gcb *gcb, int argc, char **argv)
 {
-	int	cursor;
+	int	idx;
 
-	cursor = 1;
-	while (cursor < argc && ft_strncmp(argv[cursor], "--", 2) == 0)
+	idx = 1;
+	while (idx < argc && ft_strncmp(argv[idx], "--", 2) == 0)
 	{
-		if (ft_strcmp(argv[cursor], "--bench") == 0)
+		if (ft_strcmp(argv[idx], "--bench") == 0)
 			gcb->f_bench = true;
-		else if (ft_strcmp(argv[cursor], "--simple") == 0)
+		else if (ft_strcmp(argv[idx], "--simple") == 0)
 			gcb->mode = MODE_SIMPLE;
-		else if (ft_strcmp(argv[cursor], "--medium") == 0)
+		else if (ft_strcmp(argv[idx], "--medium") == 0)
 			gcb->mode = MODE_MEDIUM;
-		else if (ft_strcmp(argv[cursor], "--complex") == 0)
+		else if (ft_strcmp(argv[idx], "--complex") == 0)
 			gcb->mode = MODE_COMPLEX;
-		else if (ft_strcmp(argv[cursor], "--adaptive") == 0)
+		else if (ft_strcmp(argv[idx], "--adaptive") == 0)
 			gcb->mode = MODE_ADAPTIVE;
 		else
 			error_exit(gcb, "Error BAD FLAG\n");
-		cursor++;
+		idx++;
 	}
-	return (cursor);
+	return (idx);
 }

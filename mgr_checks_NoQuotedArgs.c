@@ -1,57 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mgr_checks.c                                       :+:      :+:    :+:   */
+/*   mgr_checks_NoQuotedArgs.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:01:54 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:27:50 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 16:18:17 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// HANDLING QUOTED ARGUMENTS VERSION
+// NOT HANDLING QUOTED ARGUMENTS VERSION
 
-// Quick read: Validates a single numerical token (sign + digits)
-static int	validate_number(t_gcb *gcb, char *str, int idx)
+// Quick read: Checks if argc contains numbers and can switch on quoted or not.
+void	check_syntax(t_gcb *gcb, char *str)
 {
+	static bool	quoted_arg;
+	int			idx;
+
+	idx = 0;
+	if (!str || !(str[0]))
+		error_exit(gcb, "Error NO STRING\n");
 	if (str[idx] == '+' || str[idx] == '-')
 	{
 		idx++;
-		if (str[idx] < '0' || str[idx] > '9')
-			error_exit(gcb, "Error NOT DIGIT AFTER SIGN\n");
+		if (!(str[idx] >= '0' && str[idx] <= '9'))
+			error_exit(gcb, "Error NO DIGIT AFTER SIGN\n");
 	}
-	if (str[idx] < '0' || str[idx] > '9')
-		error_exit(gcb, "Error NOT DIGIT\n");
-	while (str[idx] >= '0' && str[idx] <= '9')
-		idx++;
-	return (idx);
-}
-
-// Quick read: Checks if string is a valid number OR a list of numbers
-void	check_syntax(t_gcb *gcb, char *str)
-{
-	int	idx;
-
-	idx = 0;
-	if (!str || !str[idx])
-		error_exit(gcb, "Error NO STRING\n");
 	while (str[idx])
 	{
-		while (str[idx] == ' ' || (str[idx] >= 9 && str[idx] <= 13))
-			idx++;
-		if (str[idx] == '\0')
-			break ;
-		idx = validate_number(gcb, str, idx);
-		if (str[idx] != ' ' && str[idx] != '\0' &&
-			!(str[idx] >= 9 && str[idx] <= 13))
-			error_exit(gcb, "Error OTHER THAN DIGIT, SPACE OR SIGN IN ARG\n");
+		if (!(str[idx] >= '0' && str[idx] <= '9'))
+			error_exit(gcb, "Error NO DIGIT\n");
+		idx++;
 	}
 }
 
-// Quick read: Checks duplications in stack A
+// Quick read: Checks duplications and eliminate them.
 void	check_duplicates(t_gcb *gcb)
 {
 	t_stack	*current;
@@ -66,7 +52,7 @@ void	check_duplicates(t_gcb *gcb)
 		while (runner)
 		{
 			if (current->value == runner->value)
-				error_exit(gcb, "Error DIGIT DUPLICATION\n");
+				error_exit(gcb, "Error ON check_duplicates\n");
 			runner = runner->next;
 		}
 		current = current->next;
