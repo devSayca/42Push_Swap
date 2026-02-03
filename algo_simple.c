@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 09:28:51 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 15:31:27 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:59:42 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ static int	get_min_pos(t_stack *stack)
 	int	pos;
 	int	min_pos;
 
-	min = 2147483647;
+	if (!stack)
+		return (0);
+	min = stack->value;
 	pos = 0;
 	min_pos = 0;
 	while (stack)
