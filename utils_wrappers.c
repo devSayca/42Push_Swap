@@ -6,11 +6,51 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:57 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:32:45 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:26:37 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Quick read: Basic utilitary for flags parser and bonus checker.
+int	ft_strcmp(char *s1, char *s2)
+{
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (-s2[0]);
+	if (!s2)
+		return (s1[0]);
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}
+
+// Quick read: Basic utilitary for bonus checker.
+char	*ft_strdup(const char *s)
+{
+	char	*str;
+	int		idx;
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	str = (char *)malloc(len + 1);
+	if (!str)
+		return (NULL);
+	idx = 0;
+	while (s[idx])
+	{
+		str[idx] = s[idx];
+		idx++;
+	}
+	str[idx] = '\0';
+	return (str);
+}
 
 // Quick read: Shows/cast an entire string of chars
 void	ft_putstr(char *str)

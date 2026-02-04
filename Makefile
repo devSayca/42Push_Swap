@@ -6,7 +6,7 @@
 #    By: jferone <jferone@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/15 21:53:51 by jferone           #+#    #+#              #
-#    Updated: 2026/02/04 11:55:22 by jferone          ###   ########.fr        #
+#    Updated: 2026/02/04 14:05:59 by jferone          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,8 @@ CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -I./include
 
 NAME_BONUS	= checker
-SRCS_BONUS	= bonus_checker.c $(filter-out main.c, $(SRCS))
 
-# === SOURCES === # (Main, Managers, Algorithms, Operations, Utils)
+# === SOURCES & OBJECTS === #
 SRCS	= main.c \
 		mgr_initialization.c \
 		mgr_checkers.c \
@@ -35,8 +34,10 @@ SRCS	= main.c \
 		utils_cleanup.c \
 		utils_cost.c \
 		utils_wrappers.c
-
 OBJS	= $(SRCS:.c=.o)
+
+SRCS_BONUS	= bonus_checker.c $(filter-out main.c, $(SRCS))
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 # === RULES === #
 all: $(NAME)
@@ -50,7 +51,7 @@ $(NAME_BONUS): $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	@rm -f $(NAME)

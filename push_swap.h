@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 18:01:19 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:26:38 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,8 +145,10 @@ void		set_target_positions(t_gcb *gcb);
 void		calculate_move_cost(t_gcb *gcb);
 t_stack		*get_cheapest_node(t_stack *stack);
 
-// utils_wrappers.c (atoll for universal "overflowed 32 by 64bits" checker)
+// utils_wrappers.c
 long long	ft_atoll_strict(const char *str, t_gcb *gcb);
+int			ft_strcmp(char *s1, char *s2)
+char		*ft_strdup(const char *s)
 void		ft_putstr(char *str);
 int			absol_val(int nbr);
 /* ________________________________________ */
