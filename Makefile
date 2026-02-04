@@ -6,13 +6,16 @@
 #    By: jferone <jferone@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/15 21:53:51 by jferone           #+#    #+#              #
-#    Updated: 2026/02/03 15:31:32 by jferone          ###   ########.fr        #
+#    Updated: 2026/02/04 11:55:22 by jferone          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = push_swap
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -I./include
+
+NAME_BONUS	= checker
+SRCS_BONUS	= bonus_checker.c $(filter-out main.c, $(SRCS))
 
 # === SOURCES === # (Main, Managers, Algorithms, Operations, Utils)
 SRCS	= main.c \
@@ -40,6 +43,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJS_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
 
 clean:
 	@rm -rf $(OBJS)
