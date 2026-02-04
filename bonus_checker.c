@@ -6,33 +6,78 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 18:36:33 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 11:55:18 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/04 13:58:23 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-// Quick read: Reads a lign of STDIN (without a complete GNL for efficiency)
-static char	*read_instructions(void)
+// Quick read: Basic utilitary
+static int	ft_strcmp(char *s1, char *s2)
 {
-	char	buf[5];
-	int		idx;
-	int		ret;
-
-	idx = 0;
-	while (idx < 4)
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (-s2[0]);
+	if (!s2)
+		return (s1[0]);
+	while (*s1 && *s2 && *s1 == *s2)
 	{
-		ret = read(0, &buf[idx], 1);
-		if (ret <= 0)
-			return (NULL);
-		if (buf[idx] == '\n')
-		{
-			buf[idx] = '\0'
-			return (ft_strdup(buf));
-		}
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}
+
+// Quick read: Basic utilitary
+static char	*ft_strdup(const char *s)
+{
+	char	*str;
+	int		idx;
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	str = (char *)malloc(len + 1);
+	if (!str)
+		return (NULL);
+	idx = 0;
+	while (s[idx])
+	{
+		str[idx] = s[idx];
 		idx++;
 	}
-	return (NULL);
+	str[idx] = '\0';
+	return (str);
+}
+
+// Quick read: Robust dedicated reader for Push_Swap instructions
+// Max valid len is 4 (ex: "rra\n"), we allow 5 to catch overflow/garbage.
+static char *read_instructions(void)
+{
+    char    *buf;
+    int     idx;
+    int     ret;
+    char    c;
+
+    idx = 0;
+    buf = (char *)malloc(sizeof(char) * 6);
+    if (!buf)
+        return (NULL);
+    while (idx < 5)
+    {
+        ret = read(0, &c, 1);
+        if (ret <= 0)
+            break ; 
+        if (c == '\n')
+            break ;
+        buf[idx++] = c;
+    }
+    if (idx == 0 && ret <= 0)
+        return (free(buf), NULL);
+    buf[idx] = '\0';
+    return (buf);
 }
 
 // Quick read: Exec the instruction in GCB
@@ -73,12 +118,12 @@ int	main(int argc, char **argv)
 		line = read_instructions();
 		if (!line)
 			break ;
-		apply_instruction(&gcb, *line);
+		apply_instruction(&gcb, line);
 	}
 	if (is_sorted(gcb.a) && gcb.size_b == 0)
-		write(1, "OK\n, 3");
+		write(1, "OK\n", 3);
 	else
-		write(1, "KO\n, 3");
+		write(1, "KO\n", 3);
 	free_gcb(&gcb);
 	return (0);
 } 
