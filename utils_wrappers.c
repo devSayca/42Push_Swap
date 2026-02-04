@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:57 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 14:26:37 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:34:52 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,14 @@ long long	ft_atoll_strict(const char *str, t_gcb *gcb)
 		if (str[idx++] == '-')
 			sign = -1;
 	if (!str[idx])
-		error_exit(gcb, "Error NO STRING ATOLL\n");
+		error_exit(gcb, "Error\n");
 	while (str[idx] >= '0' && str[idx] <= '9')
 	{
 		if (nbr > (LLONG_MAX - (str[idx] - '0')) / 10)
-			error_exit(gcb, "Error INT OVERFLOW ALPHA\n");
+			error_exit(gcb, "Error\n");
 		nbr = nbr * 10 + (str[idx++] - '0');
 		if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr > 2147483648LL))
-			error_exit(gcb, "Error INT OVERFLOW BRAVO\n");
+			error_exit(gcb, "Error\n");
 	}
 	return (nbr * sign);
 }

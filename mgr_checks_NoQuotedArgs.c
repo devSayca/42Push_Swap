@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:01:54 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:32:57 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:34:59 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ void	check_syntax(t_gcb *gcb, char *str)
 
 	idx = 0;
 	if (!str || !(str[0]))
-		error_exit(gcb, "Error NO STRING\n");
+		error_exit(gcb, "Error\n");
 	if (str[idx] == '+' || str[idx] == '-')
 	{
 		idx++;
 		if (!(str[idx] >= '0' && str[idx] <= '9'))
-			error_exit(gcb, "Error NO DIGIT AFTER SIGN\n");
+			error_exit(gcb, "Error\n");
 	}
 	while (str[idx])
 	{
 		if (!(str[idx] >= '0' && str[idx] <= '9'))
-			error_exit(gcb, "Error NO DIGIT\n");
+			error_exit(gcb, "Error\n");
 		idx++;
 	}
 }
@@ -52,7 +52,7 @@ void	check_duplicates(t_gcb *gcb)
 		while (runner)
 		{
 			if (current->value == runner->value)
-				error_exit(gcb, "Error ON check_duplicates\n");
+				error_exit(gcb, "Error\n");
 			runner = runner->next;
 		}
 		current = current->next;

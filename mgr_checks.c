@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:01:54 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 17:59:40 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:34:56 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static int	validate_number(t_gcb *gcb, char *str, int idx)
 	{
 		idx++;
 		if (str[idx] < '0' || str[idx] > '9')
-			error_exit(gcb, "Error NOT DIGIT AFTER SIGN\n");
+			error_exit(gcb, "Error\n");
 	}
 	if (str[idx] < '0' || str[idx] > '9')
-		error_exit(gcb, "Error NOT DIGIT\n");
+		error_exit(gcb, "Error\n");
 	while (str[idx] >= '0' && str[idx] <= '9')
 		idx++;
 	return (idx);
@@ -37,7 +37,7 @@ void	check_syntax(t_gcb *gcb, char *str)
 
 	idx = 0;
 	if (!str || !str[idx])
-		error_exit(gcb, "Error NO STRING\n");
+		error_exit(gcb, "Error\n");
 	while (str[idx])
 	{
 		while (str[idx] == ' ' || (str[idx] >= 9 && str[idx] <= 13))
@@ -47,7 +47,7 @@ void	check_syntax(t_gcb *gcb, char *str)
 		idx = validate_number(gcb, str, idx);
 		if (str[idx] != ' ' && str[idx] != '\0' &&
 			!(str[idx] >= 9 && str[idx] <= 13))
-			error_exit(gcb, "Error OTHER THAN DIGIT, SPACE OR SIGN IN ARG\n");
+			error_exit(gcb, "Error\n");
 	}
 }
 
@@ -66,7 +66,7 @@ void	check_duplicates(t_gcb *gcb)
 		while (runner)
 		{
 			if (current->value == runner->value)
-				error_exit(gcb, "Error DIGIT DUPLICATION\n");
+				error_exit(gcb, "Error\n");
 			runner = runner->next;
 		}
 		current = current->next;
