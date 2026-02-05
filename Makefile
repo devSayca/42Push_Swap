@@ -6,7 +6,7 @@
 #    By: jferone <jferone@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/15 21:53:51 by jferone           #+#    #+#              #
-#    Updated: 2026/02/04 14:35:06 by jferone          ###   ########.fr        #
+#    Updated: 2026/02/05 16:13:17 by jferone          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME_BONUS	= checker
 # === SOURCES & OBJECTS === #
 SRCS	= main.c \
 		mgr_initialization.c \
-		mgr_checkers.c \
+		mgr_checks.c \
 		mgr_flags.c \
 		mgr_metrics.c \
 		mgr_strategy.c \
@@ -40,22 +40,29 @@ SRCS_BONUS	= bonus_checker.c $(filter-out main.c, $(SRCS))
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 # === RULES === #
-all: $(NAME)
-
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-
-bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
 
+# Compiles mandatory part
+m: $(NAME)
+
+# Compiles bonus part
+bonus: $(NAME_BONUS)
+
+# Compiles both parts
+all: $(NAME) $(NAME_BONUS)
+
+# Cleaning options
 clean:
 	@rm -rf $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# Excludes "make file or command ?" conflicts possibilities
+.PHONY: m bonus all clean fclean re

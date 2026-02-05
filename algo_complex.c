@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 09:28:52 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 17:59:34 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/05 16:09:33 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static void	final_offset(t_gcb *gcb)
 	int		min_val;
 
 	temp = gcb->a;
-	min_val = stack->value;
+	min_val = 2147483647;
 	pos = 0;
 	while (temp)
 	{

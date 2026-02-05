@@ -6,14 +6,14 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 18:36:33 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 14:35:01 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/05 16:14:27 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Quick read: Sub dispatcher (Handles rotation instructions only)
-static int	apply_rot(t_gcb *gcb, char *line)
+// Quick read: Sub dispatcher (Handles ra, rb, rr, rra, rrb, rrr ONLY)
+static int	apply_rotation(t_gcb *gcb, char *line)
 {
 	if (ft_strcmp(line, "ra") == 0)
 		op_ra(gcb, false);
@@ -32,8 +32,8 @@ static int	apply_rot(t_gcb *gcb, char *line)
 	return (1);
 }
 
-// Quick read: Main dispatcher (Handles sa, sb, ss, pa, pb + rotations)
-static void	apply_instruction(t_gcb *gcb, char *line)
+// Quick read: Main dispatcher (Handles sa, sb, ss, pa, pb OR apply_rotation)
+static void	apply_push_swap(t_gcb *gcb, char *line)
 {
 	int	res;
 
@@ -49,7 +49,7 @@ static void	apply_instruction(t_gcb *gcb, char *line)
 	else if (ft_strcmp(line, "pb") == 0)
 		op_pb(gcb, false);
 	else
-		res = apply_rot(gcb, line);
+		res = apply_rotation(gcb, line);
 	if (!res)
 	{
 		free(line);
@@ -58,8 +58,8 @@ static void	apply_instruction(t_gcb *gcb, char *line)
 	free(line);
 }
 
-// Quick read: Reader (with compact direct allocation)
-static char	*read_instructions(void)
+// Quick read: GNL variant for compact bonus_checker.c (with direct allocation)
+static char	*get_next_instruction(void)
 {
 	char	*buf;
 	int		idx;
@@ -83,7 +83,7 @@ static char	*read_instructions(void)
 	return (buf);
 }
 
-// Quick read: Used only when "make bonus" typed
+// Quick read: Used only when "make bonus" is typed
 int	main(int argc, char **argv)
 {
 	t_gcb	gcb;
@@ -95,10 +95,10 @@ int	main(int argc, char **argv)
 	init_stack_a(&gcb, argv, 1);
 	while (1)
 	{
-		line = read_instructions();
+		line = get_next_instruction();
 		if (!line)
 			break ;
-		apply_instruction(&gcb, line);
+		apply_push_swap(&gcb, line);
 	}
 	if (is_sorted(gcb.a) && gcb.size_b == 0)
 		write(1, "OK\n", 3);
