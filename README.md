@@ -127,7 +127,8 @@ Forces the use of our `O(n√n) complexity` algorithm.
 
 Forces the use of our `simulated O(n log n) complexity` algorithm
 
-**Aims to** 
+**Aims to** solve complex stacks with smart insertion sort that simulates complex algorithms, theorically more efficient.
+Called "greedy cost calculation" by CPU usage before Push/Swap operations.
 
 
 ### 4. `--adaptive` (default mode if no flag)
@@ -171,12 +172,12 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 - Global source code architecture.
 - README & headers composition.
 - Medium algo implementation.
-- Bench
+- Benchmark implementation.
 
 > **`almanier`** focused on...
 - Global architecture corrections, upgrades and validation.
 - Operations code,  composition.
-- Initializers.
+- Initializers implementation.
 - Simple algo implementation.
 
 ### **INSTRUCTIONS / USAGE EXAMPLES**
@@ -197,8 +198,11 @@ ARG="212 545 8787 989 636 132321"; ./push_swap $ARG | ./checker $ARG
 
 # RESOURCES
 
-
-
+- PushSwap v1.0 two-peers (42 Next) subject.
+- MAN Linux
+- Global internet searches
+- Math theory form wikipedia
+- 42 peers experience
 
 # AI USAGE
 
@@ -208,7 +212,7 @@ ARG="212 545 8787 989 636 132321"; ./push_swap $ARG | ./checker $ARG
 
 3. **No LLM** for automatic debugs or code completion. 
 
-4. **LLM used for** deepening research on existing mathematical algorithms, and manipulation of non-mastered mathematical theory.
+4. **LLM used for** deepening researPERFECTch on existing mathematical algorithms, and manipulation of non-mastered mathematical theory.
 
 5. **Advanced cross-LLM collaboration** for exploring and learning some mathematical "super-algorithms" and post-bonus possibilities.
 
