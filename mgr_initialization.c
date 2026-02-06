@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:32:44 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/06 17:46:58 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	init_gcb(t_gcb *gcb)
 // Quick read: Serves directly "void init_stack_a"
 static int	skip_number(char *str, int idx)
 {
-	if(str[idx] == '-' || str[idx] == '+')
+	if (str[idx] == '-' || str[idx] == '+')
 		idx++;
 	while (str[idx] >= '0' && str[idx] <= '9')
 		idx++;

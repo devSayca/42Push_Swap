@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:01:54 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 14:34:56 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/06 18:04:14 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	check_syntax(t_gcb *gcb, char *str)
 		if (str[idx] == '\0')
 			break ;
 		idx = validate_number(gcb, str, idx);
-		if (str[idx] != ' ' && str[idx] != '\0' &&
-			!(str[idx] >= 9 && str[idx] <= 13))
+		if (str[idx] != ' ' && str[idx] != '\0'
+			&& !(str[idx] >= 9 && str[idx] <= 13))
 			error_exit(gcb, "Error\n");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:57 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 14:34:52 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/06 17:48:03 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	absol_val(int nbr)
 		return (nbr * -1);
 	return (nbr);
 }
+
 // Quick read: 64bits parser, stops on non-digit, ERRORS on 32bit overflow.
 long long	ft_atoll_strict(const char *str, t_gcb *gcb)
 {

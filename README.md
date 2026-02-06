@@ -32,7 +32,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 ├── algo_complex.c		# O(nlogn) simulated level	: Greedy Cheapest Insertion logic
 │
 │	# MANAGERS : Program's brain
-├── mgr_initialization.c			# Stack initialisation & argv parsing
+├── mgr_initialization.c	# Stack initialisation & argv parsing
 ├── mgr_checkers.c		# Input validations
 ├── mgr_flags.c			# Flags management
 ├── mgr_metrics.c		# Disorder  & is_sorted (Mandatory & Bench)
@@ -48,7 +48,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 │	# UTILS : Cleaning & helping tools
 ├── utils_cleanup.c		# free_stack, free_all, error_exit
 ├── utils_cost.c		# cost calculator for our complex algorithm
-├── utils_wrappers.c	# ft_atol & writers/wrappers
+├── utils_wrappers.c	# ft_atoll & writers/wrappers
 │
 └── Makefile
 ```
@@ -165,6 +165,7 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 > **`common work`**
 - Global debugs & troubleshots.
 - Complex algo implementation.
+- Common code norm declaration (idx, structs of structs, ...)
 
 > **`jferone`** focused on...
 - Global source code architecture.
@@ -175,24 +176,24 @@ The benchmark output is sent to stderr and only appear when the flag is present.
 > **`almanier`** focused on...
 - Global architecture corrections, upgrades and validation.
 - Operations code,  composition.
-- Init, 
+- Initializers.
 - Simple algo implementation.
 
-### **USAGE EXAMPLES**
+### **INSTRUCTIONS / USAGE EXAMPLES**
 
-- Using
-- 
-- 
+- Create an automatic tester that includes `push_swap` & `checker` like a "script.sh" :
+
+```sh
+ARG=$(shuf -i 0-10000 -n 100 | tr '\n' ' '); ./push_swap --bench $ARG | wc -l
+ARG=$(shuf -i 0-10000 -n 500 | tr '\n' ' '); ./push_swap --bench $ARG | wc -l
+ARG=$(shuf -i 0-10000 -n 100 | tr '\n' ' '); ./push_swap $ARG | ./checker $ARG
+
+ARG="212 545 8787 989 636 132321"; ./push_swap $ARG | ./checker $ARG
+```
 
 ### **FEATURE LIST**
 
-- PushSwap flags : `--simple` ; `--medium` ; `--complex` ; `--adaptive` ; `--benchmark`
-
-
-
-# INSTRUCTIONS
-
-
+- PushSwap flags : `--simple` ; `--medium` ; `--complex` ; `--adaptive` ; `--bench`
 
 # RESOURCES
 
