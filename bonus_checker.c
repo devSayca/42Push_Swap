@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 18:36:33 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/05 17:37:20 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:36:10 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	apply_push_swap(t_gcb *gcb, char *line)
 static char	*get_next_instruction(void)
 {
 	char	*buf;
-	int		idx;
+	size_t	idx;
 	int		ret;
 	char	c;
 

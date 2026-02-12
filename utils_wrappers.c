@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:57 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/06 17:48:03 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:21:08 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_strcmp(char *s1, char *s2)
 char	*ft_strdup(const char *s)
 {
 	char	*str;
-	int		idx;
+	size_t	idx;
 	int		len;
 
 	len = 0;
@@ -55,7 +55,7 @@ char	*ft_strdup(const char *s)
 // Quick read: Shows/cast an entire string of chars
 void	ft_putstr(char *str)
 {
-	int	idx;
+	size_t	idx;
 
 	idx = 0;
 	if (!str)
@@ -79,7 +79,7 @@ int	absol_val(int nbr)
 long long	ft_atoll_strict(const char *str, t_gcb *gcb)
 {
 	long long	nbr;
-	int			idx;
+	size_t		idx;
 	int			sign;
 
 	nbr = 0;

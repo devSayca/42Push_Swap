@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/06 18:17:18 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct s_gcb
 
 // mgr_initialization.c
 void		init_gcb(t_gcb *gcb);
-void		init_stack_a(t_gcb *gcb, char **argv, int start_index);
+void		init_stack_a(t_gcb *gcb, char **argv, size_t start_index);
 
 // mgr_checkers.c
 void		check_syntax(t_gcb *gcb, char *str);

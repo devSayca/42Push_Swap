@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:03:20 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:33:00 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Helper: Writes a string to STDERR (fd 2)
 static void	put_err(char *str)
 {
-	int	idx;
+	size_t	idx;
 
 	idx = 0;
 	if (!str)

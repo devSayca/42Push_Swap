@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:01:54 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/06 18:04:14 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // HANDLING QUOTED ARGUMENTS VERSION
 
 // Quick read: Validates a single numerical token (sign + digits)
-static int	validate_number(t_gcb *gcb, char *str, int idx)
+static size_t	validate_number(t_gcb *gcb, char *str, size_t idx)
 {
 	if (str[idx] == '+' || str[idx] == '-')
 	{
@@ -33,7 +33,7 @@ static int	validate_number(t_gcb *gcb, char *str, int idx)
 // Quick read: Checks if string is a valid number OR a list of numbers
 void	check_syntax(t_gcb *gcb, char *str)
 {
-	int	idx;
+	size_t	idx;
 
 	idx = 0;
 	if (!str || !str[idx])

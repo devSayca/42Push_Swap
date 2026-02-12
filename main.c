@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 17:59:36 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 11:55:21 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(int argc, char **argv)
 {
 	t_gcb	gcb;
-	int		start_index;
+	size_t	start_index;
 
 	if (argc < 2)
 		return (0);

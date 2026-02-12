@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:43:51 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:32:48 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Quick read: Refresh idx positions for accurate cost calculation
 static void	update_positions(t_stack *stack)
 {
-	int	idx;
+	size_t	idx;
 
 	idx = 0;
 	while (stack)

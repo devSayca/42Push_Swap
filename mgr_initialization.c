@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/06 17:46:58 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:20:29 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	stack_add_back(t_stack **stack, t_stack *new)
 // Quick read: Initializes GCB values to their default states.
 void	init_gcb(t_gcb *gcb)
 {
-	int	idx;
+	size_t	idx;
 
 	gcb->a = NULL;
 	gcb->b = NULL;
@@ -74,7 +74,7 @@ void	init_gcb(t_gcb *gcb)
 }
 
 // Quick read: Serves directly "void init_stack_a"
-static int	skip_number(char *str, int idx)
+static size_t	skip_number(char *str, size_t idx)
 {
 	if (str[idx] == '-' || str[idx] == '+')
 		idx++;
@@ -84,10 +84,10 @@ static int	skip_number(char *str, int idx)
 }
 
 // Quick read: Parses argv, validates and builds the initial stack *a.
-void	init_stack_a(t_gcb *gcb, char **argv, int start)
+void	init_stack_a(t_gcb *gcb, char **argv, size_t start)
 {
 	t_stack	*new;
-	int		idx;
+	size_t	idx;
 
 	while (argv[start])
 	{

@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:26 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 14:47:43 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // Quick read: A flexible parser. Unix-like: the last flag wins except --bench.
 int	parse_flags(t_gcb *gcb, int argc, char **argv)
 {
-	int	idx;
+	size_t	idx;
 
 	idx = 1;
-	while (idx < argc && ft_strncmp(argv[idx], "--", 2) == 0)
+	while (idx < (size_t)argc && ft_strncmp(argv[idx], "--", 2) == 0)
 	{
 		if (ft_strcmp(argv[idx], "--bench") == 0)
 			gcb->f_bench = true;
