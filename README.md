@@ -31,7 +31,7 @@ This program gives `user` the choice to select one of our **3 algo strategies**,
 ├── algo_medium.c		# O(n√n) complexity level	: Chunks logic
 ├── algo_complex.c		# O(nlogn) simulated level	: Greedy Cheapest Insertion logic
 │
-│	# MANAGERS : Program's brain
+│	# MANAGERS : Program's decision functions
 ├── mgr_initialization.c	# Stack initialisation & argv parsing
 ├── mgr_checkers.c		# Input validations
 ├── mgr_flags.c			# Flags management
@@ -125,9 +125,10 @@ Forces the use of our `O(n√n) complexity` algorithm.
 ### 3. `--complex`
 #### Greedy Cheapest Insertion algorithm
 
-Forces the use of our `simulated O(n log n) complexity` algorithm
+Forces the use of our `O(n log n) complexity in moves` algorithm :
+ **(that is "O(n square2) complexity" in cost claculation)**.
 
-**Aims to** solve complex stacks with smart insertion sort that simulates complex algorithms, theorically more efficient.
+**Aims to solve** complex stacks with a smart insertion sort that minimizes the instruction count by calculating the optimal rotation for every push.
 Called "greedy cost calculation" by CPU usage before Push/Swap operations.
 
 
