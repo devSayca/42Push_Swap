@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:03:20 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:50:00 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	print_benchmark(t_gcb *gcb)
 	long	percent_int;
 	long	percent_dec;
 
-	if (!gcb->f_bench)
+	if (gcb->flag_bench == false)
 		return ;
 	put_err("\n=== BENCHMARK REPORT ===\n");
 	put_err("[bench] disorder:\n");

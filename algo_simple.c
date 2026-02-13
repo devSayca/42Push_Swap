@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 09:28:51 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 17:59:42 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 16:39:42 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ static void	simple_sort_three(t_gcb *gcb)
 	val2 = gcb->a->next->value;
 	val3 = gcb->a->next->next->value;
 	if (val1 > val2 && val1 > val3)
-		op_ra(gcb, true);
+		op_ra(gcb);
 	else if (val2 > val1 && val2 > val3)
-		op_rra(gcb, true);
+		op_rra(gcb);
 	if (gcb->a->value > gcb->a->next->value)
-		op_sa(gcb, true);
+		op_sa(gcb);
 }
 
 // Quick read: Rotates stack A to bring the target position to the top
@@ -64,7 +64,7 @@ static void	bring_to_top(t_gcb *gcb, int pos)
 	{
 		while (pos > 0)
 		{
-			op_ra(gcb, true);
+			op_ra(gcb);
 			pos--;
 		}
 	}
@@ -72,7 +72,7 @@ static void	bring_to_top(t_gcb *gcb, int pos)
 	{
 		while (pos < gcb->size_a)
 		{
-			op_rra(gcb, true);
+			op_rra(gcb);
 			pos++;
 		}
 	}
@@ -84,15 +84,15 @@ void	solve_simple(t_gcb *gcb)
 	if (gcb->size_a == 2)
 	{
 		if (gcb->a->value > gcb->a->next->value)
-			op_sa(gcb, true);
+			op_sa(gcb);
 		return ;
 	}
 	while (gcb->size_a > 3)
 	{
 		bring_to_top(gcb, get_min_pos(gcb->a));
-		op_pb(gcb, true);
+		op_pb(gcb);
 	}
 	simple_sort_three(gcb);
 	while (gcb->b)
-		op_pa(gcb, true);
+		op_pa(gcb);
 }

@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 09:28:52 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/05 16:09:33 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 16:39:14 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ static void	finish_rotations(t_gcb *gcb, int cost_a, int cost_b)
 {
 	while (cost_a > 0)
 	{
-		op_ra(gcb, true);
+		op_ra(gcb);
 		cost_a--;
 	}
 	while (cost_a < 0)
 	{
-		op_rra(gcb, true);
+		op_rra(gcb);
 		cost_a++;
 	}
 	while (cost_b > 0)
 	{
-		op_rb(gcb, true);
+		op_rb(gcb);
 		cost_b--;
 	}
 	while (cost_b < 0)
 	{
-		op_rrb(gcb, true);
+		op_rrb(gcb);
 		cost_b++;
 	}
 }
@@ -47,18 +47,18 @@ static void	apply_opti_moves(t_gcb *gcb, t_stack *node)
 	cost_b = node->cost_b;
 	while (cost_a > 0 && cost_b > 0)
 	{
-		op_rr(gcb, true);
+		op_rr(gcb);
 		cost_a--;
 		cost_b--;
 	}
 	while (cost_a < 0 && cost_b < 0)
 	{
-		op_rrr(gcb, true);
+		op_rrr(gcb);
 		cost_a++;
 		cost_b++;
 	}
 	finish_rotations(gcb, cost_a, cost_b);
-	op_pa(gcb, true);
+	op_pa(gcb);
 }
 
 // Quick read: Sorts the last 3 elements in A
@@ -74,11 +74,11 @@ static void	sort_three(t_gcb *gcb)
 	if (a->next->next->value > max)
 		max = a->next->next->value;
 	if (a->value == max)
-		op_ra(gcb, true);
+		op_ra(gcb);
 	else if (a->next->value == max)
-		op_rra(gcb, true);
+		op_rra(gcb);
 	if (gcb->a->value > gcb->a->next->value)
-		op_sa(gcb, true);
+		op_sa(gcb);
 }
 
 // Quick read: Brings the smallest element of A to the top
@@ -105,10 +105,10 @@ static void	final_offset(t_gcb *gcb)
 	pos = min_node->pos;
 	if (pos <= gcb->size_a / 2)
 		while (gcb->a->value != min_val)
-			op_ra(gcb, true);
+			op_ra(gcb);
 	else
 		while (gcb->a->value != min_val)
-			op_rra(gcb, true);
+			op_rra(gcb);
 }
 
 // Quick read: Turk Algorithm core (alias "Greedy Cheapest Insertion")
@@ -117,11 +117,11 @@ void	solve_complex(t_gcb *gcb)
 	t_stack	*cheapest;
 
 	if (gcb->size_a > 3 && !is_sorted(gcb->a))
-		op_pb(gcb, true);
+		op_pb(gcb);
 	if (gcb->size_a > 3 && !is_sorted(gcb->a))
-		op_pb(gcb, true);
+		op_pb(gcb);
 	while (gcb->size_a > 3 && !is_sorted(gcb->a))
-		op_pb(gcb, true);
+		op_pb(gcb);
 	sort_three(gcb);
 	while (gcb->b)
 	{

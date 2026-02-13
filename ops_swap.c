@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 21:57:58 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/04 14:35:04 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:52:58 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,30 @@ static void	swap(t_stack **stack)
 	*stack = second;
 }
 
-void	op_sa(t_gcb *gcb, bool print)
+void	op_sa(t_gcb *gcb)
 {
 	swap(&(gcb->a));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_SA]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "sa\n", 3);
 }
 
-void	op_sb(t_gcb *gcb, bool print)
+void	op_sb(t_gcb *gcb)
 {
 	swap(&(gcb->b));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_SB]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "sb\n", 3);
 }
 
-void	op_ss(t_gcb *gcb, bool print)
+void	op_ss(t_gcb *gcb)
 {
 	swap(&(gcb->a));
 	swap(&(gcb->b));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_SS]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "ss\n", 3);
 }

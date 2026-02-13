@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 17:59:36 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:46:04 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 int	main(int argc, char **argv)
 {
 	t_gcb	gcb;
-	size_t	start_index;
+	size_t	start_idx;
 
 	if (argc < 2)
 		return (0);
 	init_gcb(&gcb);
-	start_index = parse_flags(&gcb, argc, argv);
-	init_stack_a(&gcb, argv, start_index);
+	start_idx = parse_flags(&gcb, argc, argv);
+	init_stack_a(&gcb, argv, start_idx);
 	if (is_sorted(gcb.a))
 	{
 		free_gcb(&gcb);

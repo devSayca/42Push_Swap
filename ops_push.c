@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:10:47 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 15:31:13 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:51:58 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	push(t_stack **dest, t_stack **src)
 	tmp->prev = NULL;
 }
 
-void	op_pa(t_gcb *gcb, bool print)
+void	op_pa(t_gcb *gcb)
 {
 	if (!gcb->b)
 		return ;
@@ -39,11 +39,11 @@ void	op_pa(t_gcb *gcb, bool print)
 	gcb->size_b--;
 	gcb->ops_total++;
 	gcb->ops_stats[OP_PA]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "pa\n", 3);
 }
 
-void	op_pb(t_gcb *gcb, bool print)
+void	op_pb(t_gcb *gcb)
 {
 	if (!gcb->a)
 		return ;
@@ -52,6 +52,6 @@ void	op_pb(t_gcb *gcb, bool print)
 	gcb->size_b++;
 	gcb->ops_total++;
 	gcb->ops_stats[OP_PB]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "pb\n", 3);
 }

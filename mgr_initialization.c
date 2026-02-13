@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:15 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/12 16:20:29 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:57:22 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	stack_add_back(t_stack **stack, t_stack *new)
 // Quick read: Initializes GCB values to their default states.
 void	init_gcb(t_gcb *gcb)
 {
-	size_t	idx;
+	size_t	clear_idx;
 
 	gcb->a = NULL;
 	gcb->b = NULL;
@@ -64,12 +64,13 @@ void	init_gcb(t_gcb *gcb)
 	gcb->size_a = 0;
 	gcb->size_b = 0;
 	gcb->mode = MODE_ADAPTIVE;
-	gcb->f_bench = false;
-	idx = 0;
-	while (idx < OP_COUNT)
+	gcb->print_ops = true;
+	gcb->flag_bench = false;
+	clear_idx = 0;
+	while (clear_idx < OP_COUNT)
 	{
-		gcb->ops_stats[idx] = 0;
-		idx++;
+		gcb->ops_stats[clear_idx] = 0;
+		clear_idx++;
 	}
 }
 

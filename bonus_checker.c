@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 18:36:33 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/12 16:36:10 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:38:24 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 static int	apply_rotation(t_gcb *gcb, char *line)
 {
 	if (ft_strcmp(line, "ra") == 0)
-		op_ra(gcb, false);
+		op_ra(gcb);
 	else if (ft_strcmp(line, "rb") == 0)
-		op_rb(gcb, false);
+		op_rb(gcb);
 	else if (ft_strcmp(line, "rr") == 0)
-		op_rr(gcb, false);
+		op_rr(gcb);
 	else if (ft_strcmp(line, "rra") == 0)
-		op_rra(gcb, false);
+		op_rra(gcb);
 	else if (ft_strcmp(line, "rrb") == 0)
-		op_rrb(gcb, false);
+		op_rrb(gcb);
 	else if (ft_strcmp(line, "rrr") == 0)
-		op_rrr(gcb, false);
+		op_rrr(gcb);
 	else
 		return (0);
 	return (1);
@@ -39,15 +39,15 @@ static void	apply_push_swap(t_gcb *gcb, char *line)
 
 	res = 1;
 	if (ft_strcmp(line, "sa") == 0)
-		op_sa(gcb, false);
+		op_sa(gcb);
 	else if (ft_strcmp(line, "sb") == 0)
-		op_sb(gcb, false);
+		op_sb(gcb);
 	else if (ft_strcmp(line, "ss") == 0)
-		op_ss(gcb, false);
+		op_ss(gcb);
 	else if (ft_strcmp(line, "pa") == 0)
-		op_pa(gcb, false);
+		op_pa(gcb);
 	else if (ft_strcmp(line, "pb") == 0)
-		op_pb(gcb, false);
+		op_pb(gcb);
 	else
 		res = apply_rotation(gcb, line);
 	if (!res)

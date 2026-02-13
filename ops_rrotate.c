@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 21:58:05 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 15:31:14 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:52:41 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,30 @@ static void	reverse_rotate(t_stack **stack)
 	*stack = last;
 }
 
-void	op_rra(t_gcb *gcb, bool print)
+void	op_rra(t_gcb *gcb)
 {
 	reverse_rotate(&(gcb->a));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_RRA]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "rra\n", 4);
 }
 
-void	op_rrb(t_gcb *gcb, bool print)
+void	op_rrb(t_gcb *gcb)
 {
 	reverse_rotate(&(gcb->b));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_RRB]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "rrb\n", 4);
 }
 
-void	op_rrr(t_gcb *gcb, bool print)
+void	op_rrr(t_gcb *gcb)
 {
 	reverse_rotate(&(gcb->a));
 	reverse_rotate(&(gcb->b));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_RRR]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:11:26 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/12 16:10:26 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:50:07 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	parse_flags(t_gcb *gcb, int argc, char **argv)
 	while (idx < (size_t)argc && ft_strncmp(argv[idx], "--", 2) == 0)
 	{
 		if (ft_strcmp(argv[idx], "--bench") == 0)
-			gcb->f_bench = true;
+			gcb->flag_bench = true;
 		else if (ft_strcmp(argv[idx], "--simple") == 0)
 			gcb->mode = MODE_SIMPLE;
 		else if (ft_strcmp(argv[idx], "--medium") == 0)

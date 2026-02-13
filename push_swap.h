@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:34:17 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/13 13:33:17 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:49:30 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 # include <stdbool.h>
 # include <limits.h>
 
-/* ______ E N U M S  &  S T R U C T S _______ */
-
+/* _____  T Y P E S   D E F I N I T I O N  _____ */
 /* ENUM_OP: Ops codification for benchmark construction */
 typedef enum e_op
 {
@@ -76,14 +75,15 @@ typedef struct s_gcb
 	int		ops_stats[OP_COUNT];
 
 	t_mode	mode;
-	bool	f_bench;
+	bool	flag_bench;
+	bool	print_ops;
 }	t_gcb;
 
-/* __________ F U N C T I O N S ___________ */
-// --------------- MANAGERS --------------- */
+/* ___________  F U N C T I O N S  ___________ */
+// ----------------- MANAGERS ---------------- */
 // mgr_initialization.c
 void		init_gcb(t_gcb *gcb);
-void		init_stack_a(t_gcb *gcb, char **argv, size_t start_index);
+void		init_stack_a(t_gcb *gcb, char **argv, size_t start_idx);
 // mgr_checkers.c
 void		check_syntax(t_gcb *gcb, char *str);
 void		check_duplicates(t_gcb *gcb);
@@ -97,7 +97,7 @@ void		dispatch_strategy(t_gcb *gcb);
 // mgr_benchmark.c
 void		print_benchmark(t_gcb *gcb);
 
-// ----------- ALGORITHMS ----------- */
+// -------------- ALGORITHMS --------------- */
 // algo_simple.c
 void		solve_simple(t_gcb *gcb);
 // algo_medium.c
@@ -105,24 +105,24 @@ void		solve_medium(t_gcb *gcb);
 // algo_complex.c
 void		solve_complex(t_gcb *gcb);
 
-/* ----------- OPERATORS ----------- */
+/* --------------- OPERATORS --------------- */
 // ops_swap.c
-void		op_sa(t_gcb *gcb, bool print);
-void		op_sb(t_gcb *gcb, bool print);
-void		op_ss(t_gcb *gcb, bool print);
+void		op_sa(t_gcb *gcb);
+void		op_sb(t_gcb *gcb);
+void		op_ss(t_gcb *gcb);
 // ops_push.c
-void		op_pa(t_gcb *gcb, bool print);
-void		op_pb(t_gcb *gcb, bool print);
+void		op_pa(t_gcb *gcb);
+void		op_pb(t_gcb *gcb);
 // ops_rotate.c
-void		op_ra(t_gcb *gcb, bool print);
-void		op_rb(t_gcb *gcb, bool print);
-void		op_rr(t_gcb *gcb, bool print);
+void		op_ra(t_gcb *gcb);
+void		op_rb(t_gcb *gcb);
+void		op_rr(t_gcb *gcb);
 // ops_rrotate.c
-void		op_rra(t_gcb *gcb, bool print);
-void		op_rrb(t_gcb *gcb, bool print);
-void		op_rrr(t_gcb *gcb, bool print);
+void		op_rra(t_gcb *gcb);
+void		op_rrb(t_gcb *gcb);
+void		op_rrr(t_gcb *gcb);
 
-/* ----------- UTILITARIES ----------- */
+/* ------------- UTILITARIES -------------- */
 // utils_cleanup.c
 void		free_stack(t_stack **stack);
 void		free_gcb(t_gcb *gcb);
@@ -138,7 +138,7 @@ char		*ft_strdup(const char *s);
 void		ft_putstr(char *str);
 int			absol_val(int nbr);
 
-/* ---------- ORCHESTRATOR ---------- */
+/* ------------- ORCHESTRATOR ------------- */
 int			main(int argc, char **argv);
 
 #endif

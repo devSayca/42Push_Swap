@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 00:10:40 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 15:31:13 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 18:52:32 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,30 @@ static void	rotate(t_stack **stack)
 	first->next = NULL;
 }
 
-void	op_ra(t_gcb *gcb, bool print)
+void	op_ra(t_gcb *gcb)
 {
 	rotate(&(gcb->a));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_RA]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "ra\n", 3);
 }
 
-void	op_rb(t_gcb *gcb, bool print)
+void	op_rb(t_gcb *gcb)
 {
 	rotate(&(gcb->b));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_RB]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "rb\n", 3);
 }
 
-void	op_rr(t_gcb *gcb, bool print)
+void	op_rr(t_gcb *gcb)
 {
 	rotate(&(gcb->a));
 	rotate(&(gcb->b));
 	gcb->ops_total++;
 	gcb->ops_stats[OP_RR]++;
-	if (print)
+	if (gcb->print_ops == true)
 		write(1, "rr\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: jferone <jferone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 09:28:53 by jferone           #+#    #+#             */
-/*   Updated: 2026/02/03 16:32:58 by jferone          ###   ########.fr       */
+/*   Updated: 2026/02/13 16:39:31 by jferone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	bring_max_to_top_b(t_gcb *gcb, int pos)
 	{
 		while (pos > 0)
 		{
-			op_rb(gcb, true);
+			op_rb(gcb);
 			pos--;
 		}
 	}
@@ -74,7 +74,7 @@ static void	bring_max_to_top_b(t_gcb *gcb, int pos)
 	{
 		while (pos < gcb->size_b)
 		{
-			op_rrb(gcb, true);
+			op_rrb(gcb);
 			pos++;
 		}
 	}
@@ -92,15 +92,15 @@ static void	push_chunks(t_gcb *gcb, int chunk_sz)
 	{
 		if (gcb->a->index < limit)
 		{
-			op_pb(gcb, true);
+			op_pb(gcb);
 			pushed++;
 			if (gcb->b->index < limit - (chunk_sz / 2))
-				op_rb(gcb, true);
+				op_rb(gcb);
 			if (pushed == limit)
 				limit += chunk_sz;
 		}
 		else
-			op_ra(gcb, true);
+			op_ra(gcb);
 	}
 }
 
@@ -120,6 +120,6 @@ void	solve_medium(t_gcb *gcb)
 	{
 		target_pos = get_max_idx_pos(gcb->b, &max_idx);
 		bring_max_to_top_b(gcb, target_pos);
-		op_pa(gcb, true);
+		op_pa(gcb);
 	}
 }
